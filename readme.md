@@ -1,6 +1,10 @@
 # Projet 008 s-pion
 
-Temps : 13h.
+Etape actuelle:
+J'essaye de faire fonctionner autrement que par tag style en meta de la page, le css est actuellement mis dans "assets/\_home_style.css" mais cela ne fonctionne pas...
+Aussi les image ne se chargent pas ...
+
+Temps : 16h.
 
 Lien github de la partie projet:  
 [Link text](https://github.com/Tom60340/008)
