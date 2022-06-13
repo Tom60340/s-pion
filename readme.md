@@ -3,6 +3,7 @@
 Etape actuelle:
 J'essaye de faire fonctionner autrement que par tag style en meta de la page, le css est actuellement mis dans "assets/\_home_style.css" mais cela ne fonctionne pas...
 Aussi les image ne se chargent pas ...
+Webpack retiré : OK.
 
 Temps : 16h.
 
