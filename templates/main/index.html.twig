@@ -3,9 +3,8 @@
 {% block title %} {{ parent() }} - Accueil {% endblock %}
 
 {% block stylesheets %}
-<link rel="stylesheet" href="{{ asset('assets/css/header.css') }}">
 {% endblock %}
 
 {% block body %}
-{% include ('main/partials/_header_home.html.twig') %}
+{% include 'main/partials/_header.html.twig' %}
 {% endblock %}

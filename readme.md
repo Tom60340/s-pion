@@ -1,11 +1,12 @@
 # Projet 008 s-pion
 
 Etape actuelle:
-J'essaye de faire fonctionner autrement que par tag style en meta de la page, le css est actuellement mis dans "assets/\_home_style.css" mais cela ne fonctionne pas...
-Aussi les image ne se chargent pas ...
-Webpack retiré : OK.
 
-Temps : 16h.
+Webpack retiré : OK.
+Logos re-dimenssionnés + cache clear : OK.
+Sidenav: OK focntionnelle reste à la customiser.
+
+Temps : 19h.
 
 Lien github de la partie projet:  
 [Link text](https://github.com/Tom60340/008)
@@ -32,4 +33,11 @@ Pour lancer le serveur local :
 
 ```
 symfony serve -d
+```
+
+Pour clear le cache:
+
+```
+
+php bin/console cache:clear
 ```
