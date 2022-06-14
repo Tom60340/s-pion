@@ -1,44 +1,20 @@
-<header class="header">
-      <div id="mySidenav" class="sidenav">          
-          <div class="sidenav1">
-            <ul>
-              <li class="cgu">
-                <div class="h2">
-                  <div class="h21">
-                    <a href="#" >           
-                    <img src="{{ asset('/assets/img/logo.png') }}" alt="Logo" class="logo_img"> 
-                    </a>
-                    <p class="user">Visiteur</p>
-                  </div>        
-                </div>
-                <a href="#">
-                  <input type="button" value="CGU" />
-                </a>
-              </li>
-              <hr> 
-              <li><a href="#">Nos services</a></li>
-              <li><a href="#">Témoignages</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
-          </div>
-          <div class="verticalLine">
-            <a id="closeBtn" href="#" class="close"><</a>
-          </div>                    
-      </div>
+<header class="header" id="header">     
+ 
       <div class="container">
+
         <div class="h1">      
           <a href="#" id="openBtn">
-          <span class="burger-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-        </a>  
+            <span class="burger-icon">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </a>  
         </div>
 
         <div class="h2">
           <div class="h21">
-            <a href="#" >           
+            <a href="#" class="logo_link" >           
               <img src="{{ asset('/assets/img/logo.png') }}" alt="Logo" class="logo_img"> 
             </a>
             <p>Visiteur</p>
@@ -56,4 +32,4 @@
         
       </div>    
 </header>
-<hr id="hr_main">
+
