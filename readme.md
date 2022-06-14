@@ -4,9 +4,9 @@ Etape actuelle:
 
 Webpack retiré : OK.
 Logos re-dimenssionnés + cache clear : OK.
-Sidenav: OK focntionnelle reste à la customiser.
+Sidenav: OK fcontionnelle reste à mettre les couleurs et la version admin avec tous les boutons.
 
-Temps : 19h.
+Temps : 22h.
 
 Lien github de la partie projet:  
 [Link text](https://github.com/Tom60340/008)
