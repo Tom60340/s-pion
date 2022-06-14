@@ -49,13 +49,6 @@ p {
   left: 0;
 }
 
-/* Close btn */
-.sidenav .close {
-  font-size: 24px;
-  font-weight: bold;
-  align-self: center;
-}
-
 /* Icône burger */
 .burger-icon span {
   display: block;
@@ -66,14 +59,18 @@ p {
   border: 1px;
 }
 
-/* Vertical line */
+/* Close btn */
 .verticalLine {
-  border-left: 2px solid #000000;
-  border-right: 2px solid #000000;
+  height: 100%;
+  width: 100%;
+  border: 2px solid #000000;
   flex-basis: 5%;
   justify-content: center;
   display: flex;
   flex-direction: column;
+  font-size: 24px;
+  font-weight: bold;
+  align-self: center;
 }
 
 .sidenav1 {
