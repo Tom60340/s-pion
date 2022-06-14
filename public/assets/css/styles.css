@@ -72,6 +72,9 @@ p {
   font-weight: bold;
   align-self: center;
 }
+.close {
+  text-align: center;
+}
 
 .sidenav1 {
   flex-basis: 95%;
