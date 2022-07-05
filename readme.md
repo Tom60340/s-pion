@@ -63,6 +63,10 @@ TargetList
 Stash  
 StashList  
 Mission à MAJ  : status / missiontype / country  / speciality  
-
-Next à faire:  
 Admin  
+
+A fire:
+Créer la database
+Créer les migrations
+Migrer les migrations
+Reprendre la vidéo à minute 11:40 (Modification du dashboard).
