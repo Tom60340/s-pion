@@ -38,6 +38,12 @@ symfony serve -d
 Pour clear le cache:
 
 ```
-
 php bin/console cache:clear
 ```
+
+Installation du easyadmin bundle:
+```
+composer require easycorp/easyadmin-bundle
+```
+
+Fichier.env.local ajouté.
