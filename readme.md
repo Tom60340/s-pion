@@ -48,12 +48,21 @@ composer require easycorp/easyadmin-bundle
 
 Fichier.env.local ajouté.
 
-Entités effectuées:
-Mission ( sans les FK)
-MissionType
-Status
-Speciality
-Country
+Entités effectuées:  
+Mission ( sans les FK)  
+MissionType  
+Status  
+Speciality  
+Country  
+Agent  
+AgentList  
+Contact  
+ContactList  
+Target  
+TargetList  
+Stash  
+StashList  
+Mission à MAJ  : status / missiontype / country  / speciality  
 
-Next à faire: 
-Agent
+Next à faire:  
+Admin  
