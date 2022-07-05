@@ -47,3 +47,13 @@ composer require easycorp/easyadmin-bundle
 ```
 
 Fichier.env.local ajouté.
+
+Entités effectuées:
+Mission ( sans les FK)
+MissionType
+Status
+Speciality
+Country
+
+Next à faire: 
+Agent
