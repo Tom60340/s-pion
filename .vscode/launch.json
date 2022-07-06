@@ -9,7 +9,13 @@
       "type": "php",
       "request": "launch",
       "port": 9003,
-      "hostname": "localhost"
+      "hostname": "localhost",
+      "env": {
+        "XDEBUG_CONFIG": "log_level=7",
+      },
+      "pathMappings": {
+        "/var/www/html": "${workspaceRoot}/www/"
+      },
     },
     {
       "name": "Launch currently open script",

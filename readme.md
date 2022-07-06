@@ -65,7 +65,7 @@ StashList
 Mission à MAJ  : status / missiontype / country  / speciality  
 Admin  
 
-A fire:
+A faire:
 Créer la database
 Créer les migrations
 Migrer les migrations
