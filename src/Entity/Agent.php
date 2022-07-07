@@ -32,6 +32,7 @@ class Agent
     private $country;
 
     #[ORM\ManyToMany(targetEntity: Speciality::class)]
+    #[ORM\JoinColumn(nullable: false)]
     private $speciality;
 
     #[ORM\ManyToOne(targetEntity: AgentList::class, inversedBy: 'agent')]
@@ -89,7 +90,7 @@ class Agent
         return $this->codeName;
     }
 
-    public function setCode(int $codeName): self
+    public function setCodeName(int $codeName): self
     {
         $this->codeName = $codeName;
 
@@ -143,4 +144,9 @@ class Agent
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->firstname;
+    } 
 }

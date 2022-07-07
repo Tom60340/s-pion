@@ -84,22 +84,25 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Create Stash', 'fas fa-plus', Stash::class)->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Show Stashes', 'fas fa-eye',Stash::class)
         ]);
-        yield MenuItem::subMenu('StashLists', 'fas fa-bars')->setSubItems([
-            MenuItem::linkToCrud('Show StashLists', 'fas fa-eye',StashList::class)
+        yield MenuItem::subMenu('StashList', 'fas fa-bars')->setSubItems([
+            MenuItem::linkToCrud('Create StashList', 'fas fa-eye',StashList::class)->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Show StashList', 'fas fa-eye',StashList::class)
         ]);
         yield MenuItem::subMenu('Agents', 'fas fa-bars')->setSubItems([
             MenuItem::linkToCrud('Create Agent', 'fas fa-plus', Agent::class)->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Show Agent', 'fas fa-eye',Agent::class)
         ]);
-        yield MenuItem::subMenu('AgentLists', 'fas fa-bars')->setSubItems([
-            MenuItem::linkToCrud('Show AgentLists', 'fas fa-eye',AgentList::class)
+        yield MenuItem::subMenu('AgentList', 'fas fa-bars')->setSubItems([
+            MenuItem::linkToCrud('Create AgentList', 'fas fa-eye',AgentList::class)->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Show AgentList', 'fas fa-eye',AgentList::class)
         ]);        
         yield MenuItem::subMenu('Contacts', 'fas fa-bars')->setSubItems([
             MenuItem::linkToCrud('Create Contact', 'fas fa-plus', Contact::class)->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Show Contacts', 'fas fa-eye',Contact::class)
         ]);
-        yield MenuItem::subMenu('ContactLists', 'fas fa-bars')->setSubItems([
-            MenuItem::linkToCrud('Show ContactLists', 'fas fa-eye',ContactList::class)
+        yield MenuItem::subMenu('ContactList', 'fas fa-bars')->setSubItems([
+            MenuItem::linkToCrud('Create ContactList', 'fas fa-eye',ContactList::class)->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Show ContactList', 'fas fa-eye',ContactList::class)
         ]);
         yield MenuItem::subMenu('Targets', 'fas fa-bars')->setSubItems([
             MenuItem::linkToCrud('Create Target', 'fas fa-plus', Target::class)->setAction(Crud::PAGE_NEW),

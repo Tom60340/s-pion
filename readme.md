@@ -6,7 +6,7 @@ Webpack retiré : OK.
 Logos re-dimenssionnés + cache clear : OK.
 Sidenav: OK fonctionnelle reste à mettre les couleurs et la version admin en responsive avec tous les boutons.
 
-Temps : 25h.
+Temps : 29h.
 
 Lien github de la partie projet:  
 [Link text](https://github.com/Tom60340/008)
@@ -64,9 +64,14 @@ Stash
 StashList  
 Mission à MAJ  : status / missiontype / country  / speciality  
 Admin  
+Créer la database  
+Créer les migrations  
+Migrer les migrations  
+Dashboard Admin fait  
+Champs des entités ajoutés  
+Implémentation de function persist dans les constructeur d'entités  
 
 A faire:
-Créer la database
-Créer les migrations
-Migrer les migrations
-Reprendre la vidéo à minute 11:40 (Modification du dashboard).
+Revoir UML, poroblème avec relation entre Mission et lists(agentlist/targetlist/contactlist/stashlist)  
+Voir pour intégrer mission id dans les entités.  
+Reprendre la vidéo à minute 32 .  

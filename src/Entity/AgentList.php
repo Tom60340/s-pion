@@ -16,6 +16,7 @@ class AgentList
     private $id;
 
     #[ORM\ManyToMany(targetEntity: Agent::class)]
+    #[ORM\JoinColumn(nullable: false)]
     private $agent;
 
     #[ORM\OneToOne(inversedBy: 'agentList', targetEntity: Mission::class, cascade: ['persist', 'remove'])]
@@ -67,4 +68,9 @@ class AgentList
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->agent;
+    } 
 }

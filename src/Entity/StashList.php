@@ -67,4 +67,11 @@ class StashList
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->stash;
+    } 
+
+
 }
