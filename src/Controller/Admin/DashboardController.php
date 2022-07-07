@@ -21,7 +21,6 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -85,7 +84,7 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Show Stashes', 'fas fa-eye',Stash::class)
         ]);
         yield MenuItem::subMenu('StashList', 'fas fa-bars')->setSubItems([
-            MenuItem::linkToCrud('Create StashList', 'fas fa-eye',StashList::class)->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Create StashList', 'fas fa-plus',StashList::class)->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Show StashList', 'fas fa-eye',StashList::class)
         ]);
         yield MenuItem::subMenu('Agents', 'fas fa-bars')->setSubItems([
@@ -93,7 +92,7 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Show Agent', 'fas fa-eye',Agent::class)
         ]);
         yield MenuItem::subMenu('AgentList', 'fas fa-bars')->setSubItems([
-            MenuItem::linkToCrud('Create AgentList', 'fas fa-eye',AgentList::class)->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Create AgentList', 'fas fa-plus',AgentList::class)->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Show AgentList', 'fas fa-eye',AgentList::class)
         ]);        
         yield MenuItem::subMenu('Contacts', 'fas fa-bars')->setSubItems([
@@ -101,7 +100,7 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Show Contacts', 'fas fa-eye',Contact::class)
         ]);
         yield MenuItem::subMenu('ContactList', 'fas fa-bars')->setSubItems([
-            MenuItem::linkToCrud('Create ContactList', 'fas fa-eye',ContactList::class)->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Create ContactList', 'fas fa-plus',ContactList::class)->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Show ContactList', 'fas fa-eye',ContactList::class)
         ]);
         yield MenuItem::subMenu('Targets', 'fas fa-bars')->setSubItems([
@@ -109,7 +108,8 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Show Targets', 'fas fa-eye',Target::class)
         ]);
         yield MenuItem::subMenu('TargetLists', 'fas fa-bars')->setSubItems([
-            MenuItem::linkToCrud('Show TargetLists', 'fas fa-eye',TargetList::class)
+            MenuItem::linkToCrud('Create TargetList', 'fas fa-plus',TargetList::class)->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Show TargetList', 'fas fa-eye',TargetList::class)
         ]);
 
     }

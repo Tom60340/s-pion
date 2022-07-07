@@ -35,9 +35,7 @@ class Agent
     #[ORM\JoinColumn(nullable: false)]
     private $speciality;
 
-    #[ORM\ManyToOne(targetEntity: AgentList::class, inversedBy: 'agent')]
-    #[ORM\JoinColumn(nullable: false)]
-    private $agentList;
+
 
     public function __construct()
     {
@@ -129,18 +127,6 @@ class Agent
     public function removeSpeciality(Speciality $speciality): self
     {
         $this->speciality->removeElement($speciality);
-
-        return $this;
-    }
-
-    public function getAgentList(): ?AgentList
-    {
-        return $this->agentList;
-    }
-
-    public function setAgentList(?AgentList $agentList): self
-    {
-        $this->agentList = $agentList;
 
         return $this;
     }

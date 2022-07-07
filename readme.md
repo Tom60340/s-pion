@@ -6,7 +6,7 @@ Webpack retiré : OK.
 Logos re-dimenssionnés + cache clear : OK.
 Sidenav: OK fonctionnelle reste à mettre les couleurs et la version admin en responsive avec tous les boutons.
 
-Temps : 29h.
+Temps : 32h.
 
 Lien github de la partie projet:  
 [Link text](https://github.com/Tom60340/008)
@@ -72,6 +72,14 @@ Champs des entités ajoutés
 Implémentation de function persist dans les constructeur d'entités  
 
 A faire:
-Revoir UML, poroblème avec relation entre Mission et lists(agentlist/targetlist/contactlist/stashlist)  
-Voir pour intégrer mission id dans les entités.  
+Revoir UML, poroblème avec relation entre Mission et lists(agentlist/targetlist/contactlist/stashlist)   
+->>> retirer les FK de mission.  DONE
+Tests:  
+Pb avec les array des truc"list"  à tester: enlever les array du construct.  
+
+
+
 Reprendre la vidéo à minute 32 .  
+
+
+Pour la logique métier pour les gaents qui ne sont pas du même pays voir les querybuilder ( minute 41).  

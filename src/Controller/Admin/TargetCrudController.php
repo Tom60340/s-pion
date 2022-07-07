@@ -6,6 +6,7 @@ use App\Entity\Target;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -24,7 +25,7 @@ class TargetCrudController extends AbstractCrudController
             IdField::new('id')->hideOnForm(),
             TextField::new('firstname'),
             TextField::new('lastname'),
-            TextField::new('birthDate'),
+            DateField::new('birthDate'),
             IntegerField::new('codeName'),
             AssociationField::new('country'),
         ];
