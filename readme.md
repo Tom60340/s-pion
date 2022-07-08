@@ -6,7 +6,11 @@ Webpack retiré : OK.
 Logos re-dimenssionnés + cache clear : OK.
 Sidenav: OK fonctionnelle reste à mettre les couleurs et la version admin en responsive avec tous les boutons.
 
-Temps : 32h.
+Temps TOTAL: 35h.
+Temps debuggage : 15h.
+Temps choses faites inutilement : 5h.
+Temps de maquettage : 10h.
+Temps UML : 5h.
 
 Lien github de la partie projet:  
 [Link text](https://github.com/Tom60340/008)
@@ -71,15 +75,30 @@ Dashboard Admin fait
 Champs des entités ajoutés  
 Implémentation de function persist dans les constructeur d'entités  
 
+ABANDONNé:
+  Revoir UML, problème avec relation entre Mission et lists(agentlist/targetlist/contactlist/stashlist)   
+  ->>> retirer les FK de mission.  DONE
+  Tests:  
+  Pb avec les array des truc"list"  à tester: enlever les array du construct et refaire setter & getter    
+  Fait sur stash mais pb tjs présent ...   
+  
+  
+  Reprendre la vidéo à minute 32 .  
+  
+  
+  Pour la logique métier pour les agents qui ne sont pas du même pays voir les querybuilder ( minute 41).  
+
 A faire:
-Revoir UML, poroblème avec relation entre Mission et lists(agentlist/targetlist/contactlist/stashlist)   
-->>> retirer les FK de mission.  DONE
-Tests:  
-Pb avec les array des truc"list"  à tester: enlever les array du construct.  
+refaire branche avant easyadmin et faire les formulaires et la vue.
+->>> Si pas OK faire:
+Home page et Admin page bootstrap
+Ajouter role pour accès via connexion à admin page
+Faire les crud et tester à chaque étape ( voir code/replay todolist Chrhis Chevalier).
+Ajouter logiique métier ( avec validator?).
+Faire searchbar autoau fur et à mesure de la complétion
 
+->Si OK : voir failel de sécurité? finaliser l eval et envoyer et mise en prod Heroku?
+     Faire leventdipatcher si besoin d envoi de mail ou autre?
 
-
-Reprendre la vidéo à minute 32 .  
-
-
-Pour la logique métier pour les gaents qui ne sont pas du même pays voir les querybuilder ( minute 41).  
+->>> Si =NONOK :
+Voir replay todolist e nvanilla et faire l eva le nfull vanilla.
