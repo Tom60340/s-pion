@@ -45,17 +45,18 @@ php bin/console cache:clear
 Done :  
 Refaire branche avant easyadmin   
 Faire les entities  
+Faire la DB  
+Page Home prête (front)  
 
 A faire: 
-Faire les formulaires et la vue.  
-->>> Si pas OK faire:
-Home page et Admin page bootstrap
-Ajouter role pour accès via connexion à admin page
-Faire les crud et tester à chaque étape ( voir code/replay todolist Chris Chevalier).
-Ajouter logiique métier ( avec validator?).
-Faire searchbar autoau fur et à mesure de la complétion
-  Si OK : voir failel de sécurité? finaliser l eval et envoyer et mise en prod Heroku?
-     Faire leventdipatcher si besoin d envoi de mail ou autre?
+Faire les crud et tester à chaque étape ( voir code/replay todolist Chris Chevalier).  
+Home page et Admin page bootstrap  
+Ajouter role pour accès via connexion à admin page  
+Ajouter logiique métier ( avec validator?).  
+Faire searchbar autoau fur et à mesure de la complétion  
+  Si OK : voir failel de sécurité? finaliser l eval et envoyer et mise en prod Heroku?  
+     Faire leventdipatcher si besoin d envoi de mail ou autre?  
 
-->>> Si =NONOK :
-Voir replay todolist e nvanilla et faire l eva le nfull vanilla.
+->>> Si =NONOK :  
+Voir replay todolist en vanilla et faire l eval en full vanilla.  
+

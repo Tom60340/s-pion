@@ -9,6 +9,9 @@ p {
   text-align: center;
 }
 
+html, body { height: 100%; }
+main { flex-grow: 1; } 
+
 /* /////////////// */
 /* Sidenav menu */
 .sidenav {
@@ -183,4 +186,56 @@ p {
   height: 100%;
   width: 100%;
   object-fit: cover;
+}
+
+/* Body */
+.showMissions {
+  margin: 30px;
+  border-radius: 5px;
+  padding : 3px;
+}
+
+.searchBar {
+  margin-top: 30px;
+  margin-bottom: 3vw;
+  text-align: center;
+}
+
+.label {
+  border:  #221db8 2px solid;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+.searchField{
+  margin-left: 0;
+  height: 100%;
+  width: 70vw;
+}
+
+.displayMissions {
+  border-top: #000000 2px solid;
+  height: 500px;
+}
+
+.card-group {
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-bottom: 10vw;
+}
+.card {
+  margin: 20px;
+}
+
+
+
+
+/* Footer */
+.footer {
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 25px;
+  border-top: #000000 2px solid;
 }
