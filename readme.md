@@ -42,10 +42,12 @@ Pour clear le cache:
 php bin/console cache:clear
 ```
 
+Done :  
+Refaire branche avant easyadmin   
+Faire les entities  
 
 A faire: 
-
-refaire branche avant easyadmin et faire les formulaires et la vue.
+Faire les formulaires et la vue.  
 ->>> Si pas OK faire:
 Home page et Admin page bootstrap
 Ajouter role pour accès via connexion à admin page
