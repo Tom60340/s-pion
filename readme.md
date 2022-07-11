@@ -47,8 +47,9 @@ Refaire branche avant easyadmin
 Faire les entities  
 Faire la DB  
 Page Home prête (front)  
+Ajout de l'user Admin + auth + rôle : done  
 
-A faire: 
+A faire:  
 Faire les crud et tester à chaque étape ( voir code/replay todolist Chris Chevalier).  
 Home page et Admin page bootstrap  
 Ajouter role pour accès via connexion à admin page  

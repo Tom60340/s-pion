@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ parent() }} - Admin {% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+{% include 'admin/partials/_sidenav.html.twig' %}
+{% include 'admin/partials/_header.html.twig' %}
+{% include 'main/partials/_body.html.twig' %}
+{% include 'main/partials/_footer.html.twig' %}
+{% endblock %}
