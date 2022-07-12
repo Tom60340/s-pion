@@ -3,10 +3,120 @@
 {% block title %} {{ parent() }} - Gestion des missions {% endblock %}
 
 {% block content %}
+{{ form_start(form) }}    
+    <div class="my-custom-class-for-errors">
+        {{ form_errors(form) }}
+    </div>
+    <div class="d-flex flex-row align-items-center justify-content-center ">
+      
+      <div class="w-25 m-3">
+        <div class="form-control text-center m-1">
+          <i class="fa fa-calendar"></i> {{ form_label(form.agentList) }}
+          {{ form_widget(form.agentList, { 'attr': {'class': 'text-center'}}) }}        
+          <div class="form-error">
+              {{ form_errors(form.agentList) }}
+          </div>
+        </div>
+        <div class="form-control text-center m-1">
+          <i class="fa fa-calendar"></i> {{ form_label(form.stashList) }}
+          {{ form_widget(form.stashList, { 'attr': {'class': 'text-center'}}) }}        
+          <div class="form-error">
+              {{ form_errors(form.stashList) }}
+          </div>
+        </div>
+        <div class="form-control text-center m-1">
+          <i class="fa fa-calendar"></i> {{ form_label(form.contactList) }}
+          {{ form_widget(form.contactList, { 'attr': {'class': 'text-center'}}) }}        
+          <div class="form-error">
+              {{ form_errors(form.contactList) }}
+          </div>
+        </div>
+        <div class="form-control text-center m-1">
+          <i class="fa fa-calendar"></i> {{ form_label(form.targetList) }}
+          {{ form_widget(form.targetList, { 'attr': {'class': 'text-center'}})}}        
+          <div class="form-error">
+              {{ form_errors(form.targetList) }}
+          </div>
+        </div>
+      </div>
+
+      <div class="w-25 m-3">
+        <div class="form-control text-center m-1">
+          <i class="fa fa-calendar"></i> {{ form_label(form.title) }}
+          {{ form_widget(form.title, { 'attr': {'class': 'text-center'}}) }}        
+          <div class="form-error">
+              {{ form_errors(form.title) }}
+          </div>
+        </div>
+        <div class="form-control text-center m-1">
+          <i class="fa fa-calendar"></i> {{ form_label(form.description) }}
+          {{ form_widget(form.description, { 'attr': {'class': 'text-center'}}) }}        
+          <div class="form-error">
+              {{ form_errors(form.description) }}
+          </div>
+        </div>
+        <div class="form-control text-center m-1">
+          <i class="fa fa-calendar"></i> {{ form_label(form.codeName) }}
+          {{ form_widget(form.codeName, { 'attr': {'class': 'text-center'}}) }}        
+          <div class="form-error">
+              {{ form_errors(form.codeName) }}
+          </div>
+        </div>
+        <div class="form-control text-center m-1">
+          <i class="fa fa-calendar"></i> {{ form_label(form.startDate) }}
+          {{ form_widget(form.startDate, { 'attr': {'class': 'text-center'}})}}        
+          <div class="form-error">
+              {{ form_errors(form.startDate) }}
+          </div>
+        </div>
+        <div class="form-control text-center m-1" >
+          <i class="fa fa-calendar"></i> {{ form_label(form.endDate) }}
+          {{ form_widget(form.endDate, { 'attr': {'class': 'text-center'}}) }}        
+          <div class="form-error">
+              {{ form_errors(form.endDate) }}
+          </div>
+        </div>
+      </div>
+
+      <div class="w-25 m-3">
+        <div class="form-control text-center m-1">
+          <i class="fa fa-calendar"></i> {{ form_label(form.speciality) }}
+          {{ form_widget(form.speciality, { 'attr': {'class': 'text-center'}}) }}        
+          <div class="form-error">
+              {{ form_errors(form.speciality) }}
+          </div>
+        </div>
+        <div class="form-control text-center m-1">
+          <i class="fa fa-calendar"></i> {{ form_label(form.missionType) }}
+          {{ form_widget(form.missionType, { 'attr': {'class': 'text-center'}}) }}        
+          <div class="form-error">
+              {{ form_errors(form.missionType) }}
+          </div>
+        </div>
+        <div class="form-control text-center m-1">
+          <i class="fa fa-calendar"></i> {{ form_label(form.status) }}
+          {{ form_widget(form.status, { 'attr': {'class': 'text-center'}}) }}        
+          <div class="form-error">
+              {{ form_errors(form.status) }}
+          </div>
+        </div>
+        <div class="form-control text-center m-1">
+          <i class="fa fa-calendar"></i> {{ form_label(form.country) }}
+          {{ form_widget(form.country, { 'attr': {'class': 'text-center'}})}}        
+          <div class="form-error">
+              {{ form_errors(form.country) }}
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="text-center mb-4 ">
+      <input type="submit" value="Créer" class="btn btn-success mt-2 w-25">
+    </div>   
+{{ form_end(form) }}
   
-  <form action="" class="missionForm form">
-  </form>
-  <p>missionForm</p>
+
 {% endblock %}
 
 

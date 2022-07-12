@@ -6,7 +6,7 @@ use App\Repository\AgentlistRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: AgentlistRepository::class)]
-class Agentlist
+class AgentList
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -17,7 +17,7 @@ class Agentlist
     #[ORM\JoinColumn(nullable: false)]
     private $agent;
 
-    #[ORM\OneToOne(inversedBy: 'agentlist', targetEntity: Mission::class, cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(inversedBy: 'agentList', targetEntity: Mission::class, cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
     private $mission;
 

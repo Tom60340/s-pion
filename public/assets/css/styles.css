@@ -214,7 +214,6 @@ main { flex-grow: 1; }
 }
 
 .displayMissions {
-  border-top: #000000 2px solid;
   height: 500px;
 }
 
@@ -243,6 +242,6 @@ main { flex-grow: 1; }
 /* /////////// */
 /* Admin */
 
-.form {
-  border-top: #000000 2px solid;
+.adminNavbar {
+  border-bottom: #000000 2px solid;
 }
