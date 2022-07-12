@@ -239,3 +239,10 @@ main { flex-grow: 1; }
   padding: 25px;
   border-top: #000000 2px solid;
 }
+
+/* /////////// */
+/* Admin */
+
+.form {
+  border-top: #000000 2px solid;
+}

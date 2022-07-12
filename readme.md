@@ -6,7 +6,7 @@ Webpack retiré : OK.
 Logos re-dimenssionnés + cache clear : OK.
 Sidenav: OK fonctionnelle reste à mettre les couleurs et la version admin en responsive avec tous les boutons.
 
-Temps : 25h.
+Temps : 35h.
 
 Lien github de la partie projet:  
 [Link text](https://github.com/Tom60340/008)
@@ -46,10 +46,12 @@ Done :
 Refaire branche avant easyadmin   
 Faire les entities  
 Faire la DB  
-Page Home prête (front)  
 Ajout de l'user Admin + auth + rôle : done  
+Pages contenus admin + liens boutons ok done  
+
 
 A faire:  
+Ajouter les forms des pages Admin  
 Faire les crud et tester à chaque étape ( voir code/replay todolist Chris Chevalier).  
 Home page et Admin page bootstrap  
 Ajouter role pour accès via connexion à admin page  
@@ -60,4 +62,3 @@ Faire searchbar autoau fur et à mesure de la complétion
 
 ->>> Si =NONOK :  
 Voir replay todolist en vanilla et faire l eval en full vanilla.  
-
