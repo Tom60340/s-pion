@@ -11,6 +11,13 @@
       
       <div class="w-25 m-3">
         <div class="form-control text-center m-1">
+          <i class="fa fa-calendar"></i> {{ form_label(form.title) }}
+          {{ form_widget(form.title, { 'attr': {'class': 'text-center'}}) }}        
+          <div class="form-error">
+              {{ form_errors(form.title) }}
+          </div>
+        </div>
+        <div class="form-control text-center m-1">
           <i class="fa fa-calendar"></i> {{ form_label(form.agentList) }}
           {{ form_widget(form.agentList, { 'attr': {'class': 'text-center'}}) }}        
           <div class="form-error">
@@ -40,28 +47,14 @@
         </div>
       </div>
 
-      <div class="w-25 m-3">
-        <div class="form-control text-center m-1">
-          <i class="fa fa-calendar"></i> {{ form_label(form.title) }}
-          {{ form_widget(form.title, { 'attr': {'class': 'text-center'}}) }}        
-          <div class="form-error">
-              {{ form_errors(form.title) }}
-          </div>
-        </div>
+      <div class="w-25 m-3">        
         <div class="form-control text-center m-1">
           <i class="fa fa-calendar"></i> {{ form_label(form.description) }}
           {{ form_widget(form.description, { 'attr': {'class': 'text-center'}}) }}        
           <div class="form-error">
               {{ form_errors(form.description) }}
           </div>
-        </div>
-        <div class="form-control text-center m-1">
-          <i class="fa fa-calendar"></i> {{ form_label(form.codeName) }}
-          {{ form_widget(form.codeName, { 'attr': {'class': 'text-center'}}) }}        
-          <div class="form-error">
-              {{ form_errors(form.codeName) }}
-          </div>
-        </div>
+        </div>        
         <div class="form-control text-center m-1">
           <i class="fa fa-calendar"></i> {{ form_label(form.startDate) }}
           {{ form_widget(form.startDate, { 'attr': {'class': 'text-center'}})}}        
@@ -79,6 +72,13 @@
       </div>
 
       <div class="w-25 m-3">
+        <div class="form-control text-center m-1">
+          <i class="fa fa-calendar"></i> {{ form_label(form.codeName) }}
+          {{ form_widget(form.codeName, { 'attr': {'class': 'text-center'}}) }}        
+          <div class="form-error">
+              {{ form_errors(form.codeName) }}
+          </div>
+        </div>
         <div class="form-control text-center m-1">
           <i class="fa fa-calendar"></i> {{ form_label(form.speciality) }}
           {{ form_widget(form.speciality, { 'attr': {'class': 'text-center'}}) }}        
@@ -112,7 +112,7 @@
     </div>
 
     <div class="text-center mb-4 ">
-      <input type="submit" value="Créer" class="btn btn-success mt-2 w-25">
+      <input type="submit" value="Créer" class="btn btn-success w-25">
     </div>   
 {{ form_end(form) }}
   

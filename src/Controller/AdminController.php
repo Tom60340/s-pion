@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Country;
 use App\Entity\Mission;
+use App\Form\CountryType;
 use App\Form\MissionType;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -43,10 +45,24 @@ class AdminController extends AbstractController
     }
 
     #[Route('/countries', name: 'app_admin_country')]
-    public function countries(): Response
+    public function countries(Request $request, ManagerRegistry $doctrine): Response
     {
-        return $this->render('admin/pages/countries.html.twig', [
+
+        $country = new Country(); 
+        $form = $this->createForm(CountryType::class, $country);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {            
+            $country = $form->getData();
+            $em = $doctrine->getManager();
+            $em->persist($country);
+            $em->flush();
+            return $this->redirectToRoute('app_admin');
+        }
+
+        return $this->renderForm('admin/pages/countries.html.twig', [
             'controller_name' => 'AdminController',
+            'form' => $form ,
         ]);
     }
 

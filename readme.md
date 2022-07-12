@@ -49,6 +49,7 @@ Faire la DB
 Ajout de l'user Admin + auth + rôle : done  
 Pages contenus admin + liens boutons ok done  
 Form missions ajouté à checker.
+Form country ajouté à checker.
 
 A faire:  
 Ajouter les forms des pages Admin  
