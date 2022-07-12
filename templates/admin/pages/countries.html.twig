@@ -4,25 +4,29 @@
 
 {% block content %}
 
-    <div class="d-flex flex-column align-items-center justify-content-center m-3 h-50">
-        <div class="form-control text-center m-1 w-25">
-          <i class="fa fa-calendar"></i> {{ form_label(form.name) }}
-          {{ form_widget(form.name, { 'attr': {'class': 'text-center'}}) }}        
-          <div class="form-error">
-              {{ form_errors(form.name) }}
+  {{ form_start(form) }}  
+
+      <div class="d-flex flex-column align-items-center justify-content-center m-3 h-50">
+          <div class="form-control text-center m-1 w-25">
+            <i class="fa fa-calendar"></i> {{ form_label(form.name) }}
+            {{ form_widget(form.name, { 'attr': {'class': 'text-center'}}) }}        
+            <div class="form-error">
+                {{ form_errors(form.name) }}
+            </div>
           </div>
-        </div>
-        <div class="form-control text-center m-1 w-25">
-          <i class="fa fa-calendar"></i> {{ form_label(form.nationality) }}
-          {{ form_widget(form.nationality, { 'attr': {'class': 'text-center'}}) }}        
-          <div class="form-error">
-              {{ form_errors(form.nationality) }}
+          <div class="form-control text-center m-1 w-25">
+            <i class="fa fa-calendar"></i> {{ form_label(form.nationality) }}
+            {{ form_widget(form.nationality, { 'attr': {'class': 'text-center'}}) }}        
+            <div class="form-error">
+                {{ form_errors(form.nationality) }}
+            </div>
           </div>
-        </div>
-        <div class="text-center mb-4 ">
-          <input type="submit" value="Enregistrer" class="btn btn-success mt-2 w-auto">
-        </div> 
-    </div>
+          <div class="text-center mb-4 ">
+            <input type="submit" value="Enregistrer" class="btn btn-success mt-2 w-auto">
+          </div> 
+      </div>
+      
+  {{ form_end(form) }}
 
 {% endblock %}
 

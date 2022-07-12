@@ -3,7 +3,7 @@
 {% block title %} {{ parent() }} - Gestion des missions {% endblock %}
 
 {% block content %}
-{{ form_start(form) }}    
+  {{ form_start(form) }}    
     <div class="my-custom-class-for-errors">
         {{ form_errors(form) }}
     </div>
@@ -114,7 +114,7 @@
     <div class="text-center mb-4 ">
       <input type="submit" value="Créer" class="btn btn-success w-25">
     </div>   
-{{ form_end(form) }}
+  {{ form_end(form) }}
   
 
 {% endblock %}

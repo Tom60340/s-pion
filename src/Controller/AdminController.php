@@ -2,9 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Country;
 use App\Entity\Mission;
-use App\Form\CountryType;
 use App\Form\MissionType;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,12 +17,11 @@ class AdminController extends AbstractController
     public function index(): Response
     {
         return $this->render('admin/pages/homeAdmin.html.twig', [
-            'controller_name' => 'AdminController',
         ]);
     }
 
-    #[Route('/missions', name: 'app_admin_missions')]
-    public function missions(Request $request, ManagerRegistry $doctrine): Response
+    #[Route('/missions', name: 'create_mission')]
+    public function mission(Request $request, ManagerRegistry $doctrine): Response
     {          
         $mission = new Mission(); 
         $form = $this->createForm(MissionType::class, $mission);
@@ -39,32 +36,9 @@ class AdminController extends AbstractController
         }
 
         return $this->renderForm('admin/pages/missions.html.twig', [
-            'controller_name' => 'AdminController',
             'form' => $form ,
         ]);
-    }
-
-    #[Route('/countries', name: 'app_admin_country')]
-    public function countries(Request $request, ManagerRegistry $doctrine): Response
-    {
-
-        $country = new Country(); 
-        $form = $this->createForm(CountryType::class, $country);
-
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {            
-            $country = $form->getData();
-            $em = $doctrine->getManager();
-            $em->persist($country);
-            $em->flush();
-            return $this->redirectToRoute('app_admin');
-        }
-
-        return $this->renderForm('admin/pages/countries.html.twig', [
-            'controller_name' => 'AdminController',
-            'form' => $form ,
-        ]);
-    }
+    }    
 
     #[Route('/agents', name: 'app_admin_agents')]
     public function agents(): Response
