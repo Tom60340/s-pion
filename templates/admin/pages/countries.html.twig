@@ -4,9 +4,10 @@
 
 {% block content %}
 
-  {{ form_start(form) }}  
-
-      <div class="d-flex flex-column align-items-center justify-content-center m-3 h-50">
+   
+    {% if app.request.get("_route") == "create_country" or app.request.get("_route") == "update_country" %}
+      {{ form_start(form) }} 
+        <div class="d-flex flex-column align-items-center justify-content-center m-3 h-50">
           <div class="form-control text-center m-1 w-25">
             <i class="fa fa-calendar"></i> {{ form_label(form.name) }}
             {{ form_widget(form.name, { 'attr': {'class': 'text-center'}}) }}        
@@ -21,12 +22,57 @@
                 {{ form_errors(form.nationality) }}
             </div>
           </div>
-          <div class="text-center mb-4 ">
-            <input type="submit" value="Enregistrer" class="btn btn-success mt-2 w-auto">
-          </div> 
-      </div>
-      
-  {{ form_end(form) }}
+
+          {% if app.request.get("_route") == "create_country" %}  
+
+            <div class="d-flex align-items-center justify-content-around ">
+              <div class="text-center m-4 ">
+                <a href="/admin/select_countries">
+                  <input type="button" value="Liste des pays" class="btn btn-primary mt-2 w-auto" >
+                </a>            
+              </div>  
+              <div class="text-center m-4 ">
+                <input type="submit" value="Enregistrer" class="btn btn-success mt-2 w-auto">
+              </div>
+            </div>
+
+          {% else %}
+
+            <div class="text-center m-4 ">
+              <input type="submit" value="Enregistrer la modification" class="btn btn-warning mt-2 w-auto">
+            </div>
+            
+          {% endif %}
+
+        </div>
+
+      {{ form_end(form) }}
+    
+    {% else %}
+
+      <div class=" d-flex flex-wrap justify-content-center">
+
+        {% for country in countries %}
+  
+          <div class="card" style="width: 18rem;">
+            <div class="card-body text-center">
+              <h5 class="card-title">Pays : {{ country.name }}</h5>
+              <p class="card-text">Nationalité : {{ country.nationality }}</p>
+              <a href="/admin/update_country/{{country.id}}" >
+                <input type="button" value="Modifier" class="btn btn-warning m-3 w-auto" >
+              </a>
+              <a href="/admin/delete_country/{{country.id}}"  >
+                <input type="button" value="Supprimer" class="btn btn-danger m-3 w-auto" >
+              </a>
+            </div>
+          </div>        
+          
+        {% endfor %}  
+
+      </div>          
+    
+    {% endif %}
+  
 
 {% endblock %}
 

@@ -34,7 +34,21 @@ class CountryController extends AbstractController
         ]);
     }
 
-    #[Route('/update_countries/{id}', name: 'update_country')]
+
+
+    #[Route('/select_countries', name: 'select_country')]
+    public function select(ManagerRegistry $doctrine): Response
+    {
+        $repo = $doctrine->getRepository(Country::class);
+        $countries = $repo->findAll();
+    
+        return $this->renderForm("admin/pages/countries.html.twig", [
+            "countries" =>$countries
+        ]);
+    }
+
+
+    #[Route('/update_country/{id}', name: 'update_country')]
     public function update(Country $country, Request $request, ManagerRegistry $doctrine): Response
     {
     $form = $this->createForm(CountryType::class, $country);
@@ -42,13 +56,22 @@ class CountryController extends AbstractController
 
     if ($form->isSubmitted() && $form->isValid()) {
         $doctrine->getManager()->flush();
-        return $this->redirectToRoute("app_admin");
+        return $this->redirectToRoute("select_country");
     }
 
     return $this->renderForm("admin/pages/countries.html.twig", [
         "form" =>$form,
         "country" => $country,
     ]);
+    }
+
+    #[Route('/delete_country/{id}', name: 'delete_country')]
+    public function delete(Country $country, ManagerRegistry $doctrine): Response
+    {
+        $em = $doctrine->getManager();
+        $em->remove($country);
+        $em->flush();
+        return $this->redirectToRoute("select_country");
     }
 
 }

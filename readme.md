@@ -50,13 +50,13 @@ Ajout de l'user Admin + auth + rôle : done
 Pages contenus admin + liens boutons ok done  
 Form missions ajouté à checker.
 Form country ajouté à checker : ok create en DB est OK.  
-
-
-A faire:
-Ajouter champ liste des pays ( déroulant choix )  + bouton modifier dans le content Gestion des pays    
+Ajouter cards des pays  + bouton modifier dans le content Gestion des pays 
 Ajouter code pour que selon la route on soit sur la pge de création ou modification  
 Faire le RUD pour country  
-Ajouter les forms des pages Admin content
+
+A faire:  
+Ajouter liste de choix du pays dans le form mission  
+Ajouter les forms des pages Admin content  
 Faire les crud et tester à chaque étape ( voir code/replay todolist Chris Chevalier).  
 Home page et Admin page bootstrap  
 Ajouter role pour accès via connexion à admin page  
