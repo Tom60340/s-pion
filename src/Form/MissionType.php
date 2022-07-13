@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Country;
 use App\Entity\Mission;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -27,8 +29,10 @@ class MissionType extends AbstractType
             ->add('speciality', TextType::class, ["label" => "Spécialité requise"])
             ->add('missionType', TextType::class, ["label" => "Type de la mission"])
             ->add('status', TextType::class, ["label" => "Statut de la mission"])
-            ->add('country', TextType::class, ["label" => "Pays de la mission"])
-        ;
+            ->add('country', EntityType::class, [
+                'label' => 'Pays de la mission',
+                'class' => Country::class,
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

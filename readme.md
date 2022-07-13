@@ -6,7 +6,7 @@ Webpack retiré : OK.
 Logos re-dimenssionnés + cache clear : OK.
 Sidenav: OK fonctionnelle reste à mettre les couleurs et la version admin en responsive avec tous les boutons.
 
-Temps : 41h.
+Temps : 43h.
 
 Lien github de la partie projet:  
 [Link text](https://github.com/Tom60340/008)
@@ -53,16 +53,14 @@ Form country ajouté à checker : ok create en DB est OK.
 Ajouter cards des pays  + bouton modifier dans le content Gestion des pays 
 Ajouter code pour que selon la route on soit sur la pge de création ou modification  
 Faire le RUD pour country  
+Ajouter liste de choix du pays dans le form mission  
 
 A faire:  
-Ajouter liste de choix du pays dans le form mission  
 Ajouter les forms des pages Admin content  
 Faire les crud et tester à chaque étape ( voir code/replay todolist Chris Chevalier).  
-Home page et Admin page bootstrap  
-Ajouter role pour accès via connexion à admin page  
 Ajouter logiique métier ( avec validator?).  
-Faire searchbar autoau fur et à mesure de la complétion  
-  Si OK : voir failel de sécurité? finaliser l eval et envoyer et mise en prod Heroku?  
+Faire searchbar auto au fur et à mesure de la complétion  
+  Si OK : voir faille de sécurité? finaliser l eval et envoyer et mise en prod Heroku?  
      Faire leventdipatcher si besoin d envoi de mail ou autre?  
 
 ->>> Si =NONOK :  
