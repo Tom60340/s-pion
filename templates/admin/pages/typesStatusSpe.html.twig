@@ -3,10 +3,67 @@
 {% block title %} {{ parent() }} - Gestion des types, status et spé. {% endblock %}
 
 {% block content %}
+ 
+  {% if app.request.get("_route") == "create_speciality" or app.request.get("_route") == "update_speciality" %}
+      {% if form is defined %}
+      {{ form_start(form) }} 
+        <div class="d-flex flex-column align-items-center justify-content-center m-3 h-50">
+          <div class="form-control text-center m-1 w-25">
+            <i class="fa fa-calendar"></i> {{ form_label(form.name) }}
+            {{ form_widget(form.name, { 'attr': {'class': 'text-center'}}) }}        
+            <div class="form-error">
+                {{ form_errors(form.name) }}
+            </div>
+          </div>          
+
+          {% if app.request.get("_route") == "create_speciality" %}  
+
+            <div class="d-flex align-items-center justify-content-around ">
+              <div class="text-center m-4 ">
+                <a href="/admin/select_specialities">
+                  <input type="button" value="Liste des spécialités" class="btn btn-primary mt-2 w-auto" >
+                </a>            
+              </div>  
+              <div class="text-center m-4 ">
+                <input type="submit" value="Enregistrer" class="btn btn-success mt-2 w-auto">
+              </div>
+            </div>
+
+          {% else %}
+
+            <div class="text-center m-4 ">
+              <input type="submit" value="Enregistrer la modification" class="btn btn-warning mt-2 w-auto">
+            </div>
+            
+          {% endif %}
+
+        </div>
+
+      {{ form_end(form) }}
+      {% endif %}
+    {% else %}
+
+      <div class=" d-flex flex-wrap justify-content-center">
+
+        {% for speciality in specialities %}
   
-  <form action="" class="typeStatusSpeForm form">
-  </form>
-  <p>typeStatusSpeForm</p>
+          <div class="card" style="width: 18rem;">
+            <div class="card-body text-center">
+              <h5 class="card-title">Spécialité : {{ speciality.name }}</h5>
+              <a href="/admin/update_speciality/{{speciality.id}}" >
+                <input type="button" value="Modifier" class="btn btn-warning m-3 w-auto" >
+              </a>
+              <a href="/admin/delete_speciality/{{speciality.id}}"  >
+                <input type="button" value="Supprimer" class="btn btn-danger m-3 w-auto" >
+              </a>
+            </div>
+          </div>        
+          
+        {% endfor %}  
+
+      </div>          
+    
+    {% endif %}
 
 {% endblock %}
 

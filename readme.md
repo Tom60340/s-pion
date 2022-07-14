@@ -57,9 +57,11 @@ Ajouter liste de choix du pays dans le form mission
 Gestion agents ok sauf attribut speciality, error code :  
   Entity of type "Doctrine\Common\Collections\ArrayCollection" passed to the choice field must be managed. Maybe you forget to persist it in the entity manager?  
     
+En fait :  Twig de mission en cours, pb avec agentList / agentlist, essai de symfony console doctrine:schema:update  
 
 
 A faire:  
+à faire/vérifier : Twig de Spécialité ok fait comme country ??  
 ->> Faire gestion speciality puis restester.  
 Ajouter les forms des pages Admin content  
 Faire les crud et tester à chaque étape ( voir code/replay todolist Chris Chevalier).  

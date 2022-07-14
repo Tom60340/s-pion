@@ -50,32 +50,47 @@
       {{ form_end(form) }}
       {% endif %}
     {% else %}
+      
+      {% if countries is empty %}
+        
+        <h5 class="text-center m-4">Aucun pays trouvé, veuillez en créer au moins un SVP.</h5>
+        <div class="text-center m-4 ">
+        <a href="/admin/countries">
+          <input type="button" value="Créer un pays" class="btn btn-primary mt-2 w-auto" >
+        </a>            
+        </div>
 
-      <div class=" d-flex flex-wrap justify-content-center">
+      {% else %}
 
-        {% for country in countries %}
+        <div class=" d-flex flex-wrap justify-content-center">
+        
   
-          <div class="card" style="width: 18rem;">
-            <div class="card-body text-center">
-              <h5 class="card-title">Pays : {{ country.name }}</h5>
-              <p class="card-text">Nationalité : {{ country.nationality }}</p>
-              <a href="/admin/update_country/{{country.id}}" >
-                <input type="button" value="Modifier" class="btn btn-warning m-3 w-auto" >
-              </a>
-              <a href="/admin/delete_country/{{country.id}}"  >
-                <input type="button" value="Supprimer" class="btn btn-danger m-3 w-auto" >
-              </a>
-            </div>
-          </div>        
-          
-        {% endfor %}  
-
-      </div>          
+          {% for country in countries %}
+    
+            <div class="card" style="width: 18rem;">
+              <div class="card-body text-center">
+                <h5 class="card-title">Pays : {{ country.name }}</h5>
+                <p class="card-text">Nationalité : {{ country.nationality }}</p>
+                <a href="/admin/update_country/{{country.id}}" >
+                  <input type="button" value="Modifier" class="btn btn-warning m-3 w-auto" >
+                </a>
+                <a href="/admin/delete_country/{{country.id}}"  >
+                  <input type="button" value="Supprimer" class="btn btn-danger m-3 w-auto" >
+                </a>
+              </div>
+            </div>        
+            
+          {% endfor %}  
+  
+        </div>   
+        
+      {% endif %}      
     
     {% endif %}
   
 
 {% endblock %}
+
 
 
 

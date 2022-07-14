@@ -35,6 +35,6 @@ class Speciality
 
     public function __toString(): string
     {
-        return $this->getFirstname();
+        return $this->getName();
     }
 }

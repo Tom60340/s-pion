@@ -40,4 +40,15 @@ class AdminController extends AbstractController
         ]);
     }   
 
+    #[Route('/select_missions', name: 'select_mission')]
+    public function select(ManagerRegistry $doctrine): Response
+    {
+        $repo = $doctrine->getRepository(Mission::class);
+        $missions = $repo->findAll();
+    
+        return $this->renderForm("admin/pages/missions.html.twig", [
+            "missions" =>$missions
+        ]);
+    }
+
 }
