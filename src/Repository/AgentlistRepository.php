@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\Agentlist;
+use App\Entity\AgentList;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Agentlist>
+ * @extends ServiceEntityRepository<AgentList>
  *
- * @method Agentlist|null find($id, $lockMode = null, $lockVersion = null)
- * @method Agentlist|null findOneBy(array $criteria, array $orderBy = null)
- * @method Agentlist[]    findAll()
- * @method Agentlist[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method AgentList|null find($id, $lockMode = null, $lockVersion = null)
+ * @method AgentList|null findOneBy(array $criteria, array $orderBy = null)
+ * @method AgentList[]    findAll()
+ * @method AgentList[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class AgentlistRepository extends ServiceEntityRepository
+class AgentListRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Agentlist::class);
+        parent::__construct($registry, AgentList::class);
     }
 
-    public function add(Agentlist $entity, bool $flush = false): void
+    public function add(AgentList $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class AgentlistRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(Agentlist $entity, bool $flush = false): void
+    public function remove(AgentList $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -40,7 +40,7 @@ class AgentlistRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return Agentlist[] Returns an array of Agentlist objects
+//     * @return AgentList[] Returns an array of AgentList objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class AgentlistRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Agentlist
+//    public function findOneBySomeField($value): ?AgentList
 //    {
 //        return $this->createQueryBuilder('a')
 //            ->andWhere('a.exampleField = :val')

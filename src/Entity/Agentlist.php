@@ -2,10 +2,10 @@
 
 namespace App\Entity;
 
-use App\Repository\AgentlistRepository;
+use App\Repository\AgentListRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: AgentlistRepository::class)]
+#[ORM\Entity(repositoryClass: AgentListRepository::class)]
 class AgentList
 {
     #[ORM\Id]

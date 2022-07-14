@@ -3,7 +3,22 @@
 {% block title %} {{ parent() }} - Afficher les missions {% endblock %}
 
 {% block content %}
-  {% include 'main/partials/_body.html.twig' %}
+
+  {% if missions is empty %}
+
+      <h5 class="text-center m-4">Aucune mission trouvée, veuillez en créer au moins une SVP.</h5>
+      <div class="text-center m-4 ">
+        <a href="/admin/missions">
+          <input type="button" value="Créer une mission" class="btn btn-primary mt-2 w-auto" >
+        </a>            
+      </div>
+
+  {% else %}
+
+    {% include 'main/partials/_body.html.twig' %}
+
+  {% endif %}
+  
 {% endblock %}
 
 

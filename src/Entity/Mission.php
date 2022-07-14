@@ -28,8 +28,8 @@ class Mission
     #[ORM\Column(type: 'datetime')]
     private $endDate;   
 
-    #[ORM\OneToOne(mappedBy: 'mission', targetEntity: Agentlist::class, cascade: ['persist', 'remove'])]
-    private $agentlist;
+    #[ORM\OneToOne(mappedBy: 'mission', targetEntity: AgentList::class, cascade: ['persist', 'remove'])]
+    private $agentList;
 
     #[ORM\OneToOne(mappedBy: 'mission', targetEntity: StashList::class, cascade: ['persist', 'remove'])]
     private $stashList;
@@ -121,19 +121,19 @@ class Mission
         return $this;
     }
 
-    public function getAgentlist(): ?Agentlist
+    public function getAgentList(): ?AgentList
     {
-        return $this->agentlist;
+        return $this->agentList;
     }
 
-    public function setAgentlist(Agentlist $agentlist): self
+    public function setAgentList(AgentList $agentList): self
     {
         // set the owning side of the relation if necessary
-        if ($agentlist->getMission() !== $this) {
-            $agentlist->setMission($this);
+        if ($agentList->getMission() !== $this) {
+            $agentList->setMission($this);
         }
 
-        $this->agentlist = $agentlist;
+        $this->agentList = $agentList;
 
         return $this;
     }

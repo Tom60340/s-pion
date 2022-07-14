@@ -42,27 +42,41 @@
       {{ form_end(form) }}
       {% endif %}
     {% else %}
+      
+      {% if specialities is empty %}
+        
+        <h5 class="text-center m-4">Aucune spécialité trouvée, veuillez en créer au moins une SVP.</h5>
+        <div class="text-center m-4 ">
+        <a href="/admin/typesStatusSpe">
+          <input type="button" value="Créer une spécialité" class="btn btn-primary mt-2 w-auto" >
+        </a>            
+        </div>
 
-      <div class=" d-flex flex-wrap justify-content-center">
+      {% else %}
 
-        {% for speciality in specialities %}
+
+        <div class=" d-flex flex-wrap justify-content-center">
   
-          <div class="card" style="width: 18rem;">
-            <div class="card-body text-center">
-              <h5 class="card-title">Spécialité : {{ speciality.name }}</h5>
-              <a href="/admin/update_speciality/{{speciality.id}}" >
-                <input type="button" value="Modifier" class="btn btn-warning m-3 w-auto" >
-              </a>
-              <a href="/admin/delete_speciality/{{speciality.id}}"  >
-                <input type="button" value="Supprimer" class="btn btn-danger m-3 w-auto" >
-              </a>
-            </div>
-          </div>        
-          
-        {% endfor %}  
-
-      </div>          
+          {% for speciality in specialities %}
     
+            <div class="card" style="width: 18rem;">
+              <div class="card-body text-center">
+                <h5 class="card-title">Spécialité : {{ speciality.name }}</h5>
+                <a href="/admin/update_speciality/{{speciality.id}}" >
+                  <input type="button" value="Modifier" class="btn btn-warning m-3 w-auto" >
+                </a>
+                <a href="/admin/delete_speciality/{{speciality.id}}"  >
+                  <input type="button" value="Supprimer" class="btn btn-danger m-3 w-auto" >
+                </a>
+              </div>
+            </div>        
+            
+          {% endfor %}  
+  
+        </div>          
+      
+      {% endif %}
+
     {% endif %}
 
 {% endblock %}

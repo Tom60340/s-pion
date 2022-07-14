@@ -117,7 +117,7 @@
   
         <div class="d-flex align-items-center justify-content-around ">
           <div class="text-center m-4 ">
-            <a href="/admin/select_missions">
+            <a href="/admin">
               <input type="button" value="Liste des missions" class="btn btn-primary mt-2 w-auto" >
             </a>            
           </div>
@@ -136,17 +136,7 @@
   
     {{ form_end(form) }}
     {% endif %}
-  {% else %}
-    {% if missions is empty %}
-
-      <h5 class="text-center m-4">Aucune mission trouvée, veuillez en créer au moins une SVP.</h5>
-      <div class="text-center m-4 ">
-        <a href="/admin/missions">
-          <input type="button" value="Créer une mission" class="btn btn-primary mt-2 w-auto" >
-        </a>            
-      </div>
-
-    {% else %}
+  {% else %}    
 
       <div class=" d-flex flex-wrap justify-content-center">
         {% for mission in missions %}
@@ -180,7 +170,7 @@
         {% endfor %}
 
       </div> 
-    {% endif %}     
+         
     {% endif %}
 
 {% endblock %}

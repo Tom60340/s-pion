@@ -14,9 +14,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminController extends AbstractController
 {
     #[Route('/', name: 'app_admin')]
-    public function index(): Response
+    public function index(ManagerRegistry $doctrine): Response
     {
-        return $this->render('admin/pages/homeAdmin.html.twig', [
+        $repo = $doctrine->getRepository(Mission::class);
+        $missions = $repo->findAll();
+    
+        return $this->renderForm("admin/pages/homeAdmin.html.twig", [
+            "missions" =>$missions
         ]);
     }
 

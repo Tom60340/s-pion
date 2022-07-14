@@ -6,7 +6,7 @@ Webpack retiré : OK.
 Logos re-dimenssionnés + cache clear : OK.
 Sidenav: OK fonctionnelle reste à mettre les couleurs et la version admin en responsive avec tous les boutons.
 
-Temps : 43h.
+Temps : 50h.
 
 Lien github de la partie projet:  
 [Link text](https://github.com/Tom60340/008)
@@ -54,15 +54,13 @@ Ajouter cards des pays  + bouton modifier dans le content Gestion des pays
 Ajouter code pour que selon la route on soit sur la pge de création ou modification  
 Faire le RUD pour country  
 Ajouter liste de choix du pays dans le form mission  
-Gestion agents ok sauf attribut speciality, error code :  
-  Entity of type "Doctrine\Common\Collections\ArrayCollection" passed to the choice field must be managed. Maybe you forget to persist it in the entity manager?  
-    
-En fait :  Twig de mission en cours, pb avec agentList / agentlist, essai de symfony console doctrine:schema:update  
+Gestion agents ok reste à tester après possibilité de créer un agent  
 
 
 A faire:  
-à faire/vérifier : Twig de Spécialité ok fait comme country ??  
-->> Faire gestion speciality puis restester.  
+PB bouton logout doit aller sur page d'accueil  issue : Class "App\Controller\Mission" does not exist  
+Séparer bouttons Types, status et spé en 3  
+->> Faire gestion speciality (video GrafiKart) puis tester.  
 Ajouter les forms des pages Admin content  
 Faire les crud et tester à chaque étape ( voir code/replay todolist Chris Chevalier).  
 Ajouter logiique métier ( avec validator?).  
