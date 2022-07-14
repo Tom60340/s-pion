@@ -4,9 +4,110 @@
 
 {% block content %}
   
-  <form action="" class="agentForm form">
-  </form>
-  <p>agentForm</p>
+  {% if app.request.get("_route") == "create_agent" or app.request.get("_route") == "update_agent" %}
+    {% if form is defined %}
+    {{ form_start(form) }} 
+
+      <div class="d-flex flex-column align-items-center justify-content-center m-3 h-50">
+        <div class="form-control text-center m-1 w-25">
+          <i class="fa fa-calendar"></i> {{ form_label(form.firstname) }}
+          {{ form_widget(form.firstname, { 'attr': {'class': 'text-center'}}) }}        
+          <div class="form-error">
+              {{ form_errors(form.firstname) }}
+          </div>
+        </div>
+        <div class="form-control text-center m-1 w-25">
+          <i class="fa fa-calendar"></i> {{ form_label(form.lastname) }}
+          {{ form_widget(form.lastname, { 'attr': {'class': 'text-center'}}) }}        
+          <div class="form-error">
+              {{ form_errors(form.lastname) }}
+          </div>
+        </div>
+        <div class="form-control text-center m-1 w-25">
+          <i class="fa fa-calendar"></i> {{ form_label(form.birthDate) }}
+          {{ form_widget(form.birthDate, { 'attr': {'class': 'text-center'}}) }}        
+          <div class="form-error">
+              {{ form_errors(form.birthDate) }}
+          </div>
+        </div>
+        <div class="form-control text-center m-1 w-25">
+          <i class="fa fa-calendar"></i> {{ form_label(form.code) }}
+          {{ form_widget(form.code, { 'attr': {'class': 'text-center'}}) }}        
+          <div class="form-error">
+              {{ form_errors(form.code) }}
+          </div>
+        </div>
+         <div class="form-control text-center m-1 w-25">
+          <i class="fa fa-calendar"></i> {{ form_label(form.country) }}
+          {{ form_widget(form.country, { 'attr': {'class': 'text-center'}}) }}        
+          <div class="form-error">
+              {{ form_errors(form.country) }}
+          </div>
+        </div>
+        <div class="form-control text-center m-1 w-25">
+          <i class="fa fa-calendar"></i> {{ form_label(form.speciality) }}
+          {{ form_widget(form.speciality, { 'attr': {'class': 'text-center'}}) }}        
+          <div class="form-error">
+              {{ form_errors(form.speciality) }}
+          </div>
+        </div>
+
+        {% if app.request.get("_route") == "create_agent" %}  
+
+          <div class="d-flex align-items-center justify-content-around ">
+            <div class="text-center m-4 ">
+              <a href="/admin/select_agents">
+                <input type="button" value="Liste des agents" class="btn btn-primary mt-2 w-auto" >
+              </a>            
+            </div>  
+            <div class="text-center m-4 ">
+              <input type="submit" value="Enregistrer" class="btn btn-success mt-2 w-auto">
+            </div>
+          </div>
+
+        {% else %}
+
+          <div class="text-center m-4 ">
+            <input type="submit" value="Enregistrer la modification" class="btn btn-warning mt-2 w-auto">
+          </div>
+          
+        {% endif %}
+
+      </div>
+
+    {{ form_end(form) }}
+    {% endif %}
+  {% else %}
+
+
+      <div class=" d-flex flex-wrap justify-content-center">
+        {% for agent in agents %}
+
+          <div class="card" style="width: 18rem;">
+            <div class="card-body text-center">
+              <h5 class="card-title">Nom : {{ agent.lastname }}</h5>
+              <p class="card-text">
+                Prénom : {{ agent.firstname }} <br>
+                Code : {{ agent.code }} <br>
+                Date de naissance : {{ agent.birthDate }} <br>
+                Pays : {{ agent.country }} <br>
+                Spécialité : {{ agent.speciality }} <br>
+              </p>
+              <a href="/admin/update_agent/{{agent.id}}" >
+                <input type="button" value="Modifier" class="btn btn-warning m-3 w-auto" >
+              </a>
+              <a href="/admin/delete_agent/{{agent.id}}"  >
+                <input type="button" value="Supprimer" class="btn btn-danger m-3 w-auto" >
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+
+      </div> 
+    
+
+
+  {% endif %}
 
 {% endblock %}
 

@@ -26,7 +26,7 @@ class CountryController extends AbstractController
             $em = $doctrine->getManager();
             $em->persist($country);
             $em->flush();
-            return $this->redirectToRoute('app_admin');
+            return $this->redirectToRoute('select_country');
         }
 
         return $this->renderForm('admin/pages/countries.html.twig', [

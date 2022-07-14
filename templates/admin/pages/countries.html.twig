@@ -6,6 +6,7 @@
 
    
     {% if app.request.get("_route") == "create_country" or app.request.get("_route") == "update_country" %}
+      {% if form is defined %}
       {{ form_start(form) }} 
         <div class="d-flex flex-column align-items-center justify-content-center m-3 h-50">
           <div class="form-control text-center m-1 w-25">
@@ -47,7 +48,7 @@
         </div>
 
       {{ form_end(form) }}
-    
+      {% endif %}
     {% else %}
 
       <div class=" d-flex flex-wrap justify-content-center">

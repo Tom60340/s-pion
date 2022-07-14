@@ -54,8 +54,13 @@ Ajouter cards des pays  + bouton modifier dans le content Gestion des pays
 Ajouter code pour que selon la route on soit sur la pge de création ou modification  
 Faire le RUD pour country  
 Ajouter liste de choix du pays dans le form mission  
+Gestion agents ok sauf attribut speciality, error code :  
+  Entity of type "Doctrine\Common\Collections\ArrayCollection" passed to the choice field must be managed. Maybe you forget to persist it in the entity manager?  
+    
+
 
 A faire:  
+->> Faire gestion speciality puis restester.  
 Ajouter les forms des pages Admin content  
 Faire les crud et tester à chaque étape ( voir code/replay todolist Chris Chevalier).  
 Ajouter logiique métier ( avec validator?).  
@@ -65,3 +70,6 @@ Faire searchbar auto au fur et à mesure de la complétion
 
 ->>> Si =NONOK :  
 Voir replay todolist en vanilla et faire l eval en full vanilla.  
+
+En plus si j'ai le temps:  
+gérer l'ordre des liste des entités  
