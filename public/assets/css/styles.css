@@ -152,7 +152,7 @@ main { flex-grow: 1; }
 }
 
 .container {
-  background-color: green;
+  /* background-color: green; */
   height: 200px;
   width: 100vw;
   display: flex;
@@ -164,7 +164,7 @@ main { flex-grow: 1; }
 .h1,
 .h2,
 .h3 {
-  background-color: blue;
+  /* background-color: blue; */
   width: 100px;
   max-height: 100%;
   display: flex;
@@ -173,7 +173,7 @@ main { flex-grow: 1; }
   min-width: 0;
 }
 
-.login_link,
+.log_link,
 .logo_link {
   height: 100%;
   width: 100%;
@@ -186,6 +186,11 @@ main { flex-grow: 1; }
   height: 100%;
   width: 100%;
   object-fit: cover;
+}
+
+/* Navbar */
+.homeNavbar {
+  border-bottom: #000000 2px solid;
 }
 
 /* Body */
@@ -238,9 +243,14 @@ main { flex-grow: 1; }
   border-top: #000000 2px solid;
 }
 
+.CGU {
+  text-decoration: none;
+}
+
 /* /////////// */
 /* Admin */
 
+/* Admin navbar */
 .adminNavbar {
   border-bottom: #000000 2px solid;
 }

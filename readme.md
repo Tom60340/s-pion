@@ -55,11 +55,10 @@ Ajouter code pour que selon la route on soit sur la pge de création ou modifica
 Faire le RUD pour country  
 Ajouter liste de choix du pays dans le form mission  
 Gestion agents ok reste à tester après possibilité de créer un agent  
-
-
-A faire:  
-PB bouton logout doit aller sur page d'accueil  issue : Class "App\Controller\Mission" does not exist  
 Séparer bouttons Types, status et spé en 3  
+
+A faire: 
+Issue : home doon't have border-bottom.  
 ->> Faire gestion speciality (video GrafiKart) puis tester.  
 Ajouter les forms des pages Admin content  
 Faire les crud et tester à chaque étape ( voir code/replay todolist Chris Chevalier).  
@@ -73,3 +72,4 @@ Voir replay todolist en vanilla et faire l eval en full vanilla.
 
 En plus si j'ai le temps:  
 gérer l'ordre des liste des entités  
+

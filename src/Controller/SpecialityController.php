@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/admin')]
 class SpecialityController extends AbstractController
 {
-    #[Route('/typesStatusSpe', name: 'create_speciality')]
+    #[Route('/specialities', name: 'create_speciality')]
     public function speciality(Request $request, ManagerRegistry $doctrine): Response
     {
 
@@ -30,7 +30,7 @@ class SpecialityController extends AbstractController
             return $this->redirectToRoute('select_speciality');
         }
 
-        return $this->renderForm('admin/pages/typesStatusSpe.html.twig', [
+        return $this->renderForm('admin/pages/specialities.html.twig', [
             'form' => $form
         ]);
     }
@@ -43,7 +43,7 @@ class SpecialityController extends AbstractController
         $repo = $doctrine->getRepository(Speciality::class);
         $specialities = $repo->findAll();
     
-        return $this->renderForm("admin/pages/typesStatusSpe.html.twig", [
+        return $this->renderForm("admin/pages/specialities.html.twig", [
             "specialities" =>$specialities
         ]);
     }
@@ -60,7 +60,7 @@ class SpecialityController extends AbstractController
         return $this->redirectToRoute("select_speciality");
     }
 
-    return $this->renderForm("admin/pages/typesStatusSpe.html.twig", [
+    return $this->renderForm("admin/pages/specialities.html.twig", [
         "form" =>$form,
         "speciality" => $speciality,
     ]);
