@@ -6,7 +6,7 @@ Webpack retiré : OK.
 Logos re-dimenssionnés + cache clear : OK.
 Sidenav: OK fonctionnelle reste à mettre les couleurs et la version admin en responsive avec tous les boutons.
 
-Temps : 55h.
+Temps : 57h.
 
 Lien github de la partie projet:  
 [Link text](https://github.com/Tom60340/008)

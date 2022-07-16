@@ -84,7 +84,7 @@
       <h5 class="text-center m-4">Aucun agent trouvé, veuillez en créer au moins un SVP.</h5>
       <div class="text-center m-4 ">
         <a href="/admin/agents">
-          <input type="button" value="Créer un agent" class="btn btn-primary mt-2 w-auto" >
+          <input type="button" value="Ajouter un agent" class="btn btn-primary mt-2 w-auto" >
         </a>            
       </div>
 
@@ -115,7 +115,9 @@
             </div>
           </div>
         {% endfor %}
-
+        <a href="/admin/agents">
+          <input type="button" value="Ajouter un agent" class="btn btn-primary mt-2 w-auto" >
+        </a>
       </div> 
         
     {% endif %}

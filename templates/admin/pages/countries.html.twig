@@ -56,13 +56,13 @@
         <h5 class="text-center m-4">Aucun pays trouvé, veuillez en créer au moins un SVP.</h5>
         <div class="text-center m-4 ">
         <a href="/admin/countries">
-          <input type="button" value="Créer un pays" class="btn btn-primary mt-2 w-auto" >
+          <input type="button" value="Ajouter un pays" class="btn btn-primary mt-2 w-auto" >
         </a>            
         </div>
 
       {% else %}
 
-        <div class=" d-flex flex-wrap justify-content-center">
+        <div class=" d-flex flex-wrap justify-content-center align-items-center">
         
   
           {% for country in countries %}
@@ -81,7 +81,9 @@
             </div>        
             
           {% endfor %}  
-  
+          <a href="/admin/countries">
+            <input type="button" value="Ajouter un pays" class="btn btn-primary mt-2 w-auto" >
+          </a> 
         </div>   
         
       {% endif %}      
