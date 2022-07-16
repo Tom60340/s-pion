@@ -58,9 +58,13 @@ Gestion agents ok reste à tester après possibilité de créer un agent
 Séparer bouttons Types, status et spé en 3  
 
 A faire: 
-Ajouter les forms des pages Admin content  
+Contacts controller + Type + templates .
+Cibles controller + Type + templates .
+Planques controller + Type + templates .
+Status controller + Type + templates .
+Types controller + Type + templates .
 Faire les crud et tester à chaque étape ( voir code/replay todolist Chris Chevalier).  
-Ajouter logiique métier ( avec validator?).  
+Ajouter logique métier ( avec validator?).  
 Faire searchbar auto au fur et à mesure de la complétion  
   Si OK : voir faille de sécurité? finaliser l eval et envoyer et mise en prod Heroku?  
      Faire leventdipatcher si besoin d envoi de mail ou autre?  

@@ -12,7 +12,6 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use App\Form\SearchableEntityType;
 class AgentType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -20,7 +19,11 @@ class AgentType extends AbstractType
         $builder
             ->add('firstname', TextType::class, ["label" => "Prénom"])
             ->add('lastname', TextType::class, ["label" => "Nom"])
-            ->add('birthDate', DateType::class, ["label" => "Date de naissance"])
+            ->add('birthDate', DateType::class, [
+                "label" => "Date de naissance",
+                'widget' => 'choice',
+                'years' => range(date('Y'), date('Y')-1000),
+                ])
             ->add('code', IntegerType::class, ["label" => "Code d'identification"])
             ->add('country', EntityType::class, [
                 "label" => "Pays de résidence",

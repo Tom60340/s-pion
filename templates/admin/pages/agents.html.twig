@@ -45,7 +45,7 @@
           </div>
         </div>
         <div class="form-control text-center m-1 w-25">
-          <i class="fa fa-calendar"></i> {{ form_label(form.speciality) }}
+          <i class="fa fa-calendar"></i> {{ form_label(form.speciality,'Spécialité(s), choix multiple en maintenant Ctrl') }}
           {{ form_widget(form.speciality, { 'attr': {'class': 'text-center'}}) }}        
           <div class="form-error">
               {{ form_errors(form.speciality) }}
@@ -99,9 +99,12 @@
               <p class="card-text">
                 Prénom : {{ agent.firstname }} <br>
                 Code : {{ agent.code }} <br>
-                Date de naissance : {{ agent.birthDate }} <br>
+                Date de naissance : {{ agent.birthDate |date('d-m-Y') }} <br>
                 Pays : {{ agent.country }} <br>
-                Spécialité : {{ agent.speciality }} <br>
+                Spécialité(s) : 
+                {% for speciality in agent.speciality %}
+                  {{ speciality }} 
+                {% endfor %} . <br>
               </p>
               <a href="/admin/update_agent/{{agent.id}}" >
                 <input type="button" value="Modifier" class="btn btn-warning m-3 w-auto" >

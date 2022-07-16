@@ -27,7 +27,7 @@ class AgentController extends AbstractController
             $em = $doctrine->getManager();
             $em->persist($agent);
             $em->flush();
-            return $this->redirectToRoute('app_admin');
+            return $this->redirectToRoute('select_agent');
         }
 
         return $this->renderForm('admin/pages/agents.html.twig', [
