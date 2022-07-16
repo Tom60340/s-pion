@@ -6,7 +6,7 @@ Webpack retiré : OK.
 Logos re-dimenssionnés + cache clear : OK.
 Sidenav: OK fonctionnelle reste à mettre les couleurs et la version admin en responsive avec tous les boutons.
 
-Temps : 50h.
+Temps : 55h.
 
 Lien github de la partie projet:  
 [Link text](https://github.com/Tom60340/008)
@@ -58,8 +58,6 @@ Gestion agents ok reste à tester après possibilité de créer un agent
 Séparer bouttons Types, status et spé en 3  
 
 A faire: 
-Issue : home doon't have border-bottom.  
-->> Faire gestion speciality (video GrafiKart) puis tester.  
 Ajouter les forms des pages Admin content  
 Faire les crud et tester à chaque étape ( voir code/replay todolist Chris Chevalier).  
 Ajouter logiique métier ( avec validator?).  
@@ -71,5 +69,7 @@ Faire searchbar auto au fur et à mesure de la complétion
 Voir replay todolist en vanilla et faire l eval en full vanilla.  
 
 En plus si j'ai le temps:  
+->> Faire gestion speciality (video GrafiKart : https://www.youtube.com/watch?v=6v_Vzv4dzP4)  
+Revoir templates affichage Admin par pages  
 gérer l'ordre des liste des entités  
 
