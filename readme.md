@@ -6,7 +6,7 @@ Webpack retiré : OK.
 Logos re-dimenssionnés + cache clear : OK.
 Sidenav: OK fonctionnelle reste à mettre les couleurs et la version admin en responsive avec tous les boutons.
 
-Temps : 57h.
+Temps : 58h.
 
 Lien github de la partie projet:  
 [Link text](https://github.com/Tom60340/008)
@@ -56,15 +56,18 @@ Faire le RUD pour country
 Ajouter liste de choix du pays dans le form mission  
 Gestion agents ok reste à tester après possibilité de créer un agent  
 Séparer bouttons Types, status et spé en 3  
+Status controller + Type + templates + champs dans missions.  
+
+
 
 A faire: 
-Contacts controller + Type + templates .
-Cibles controller + Type + templates .
-Planques controller + Type + templates .
-Status controller + Type + templates .
-Types controller + Type + templates .
-Faire les crud et tester à chaque étape ( voir code/replay todolist Chris Chevalier).  
-Ajouter logique métier ( avec validator?).  
+
+Types controller + Type + templates + champs dans missions.  
+Contacts controller + Type + templates + champs dans missions.  
+Cibles controller + Type + templates + champs dans missions.  
+Planques controller + Type + templates + champs dans missions.  
+Faire les crud et tester à chaque étape (voir code/replay todolist Chris Chevalier).  
+Ajouter logique métier (avec validator?).  
 Faire searchbar auto au fur et à mesure de la complétion  
   Si OK : voir faille de sécurité? finaliser l eval et envoyer et mise en prod Heroku?  
      Faire leventdipatcher si besoin d envoi de mail ou autre?  
@@ -73,7 +76,8 @@ Faire searchbar auto au fur et à mesure de la complétion
 Voir replay todolist en vanilla et faire l eval en full vanilla.  
 
 En plus si j'ai le temps:  
-->> Faire gestion speciality (video GrafiKart : https://www.youtube.com/watch?v=6v_Vzv4dzP4)  
-Revoir templates affichage Admin par pages  
-gérer l'ordre des liste des entités  
+  ->> Faire gestion speciality (video GrafiKart : https://www.youtube.com/watch?v=6v_Vzv4dzP4)  
+  Revoir templates affichage Admin par pages  
+  gérer l'ordre des liste des entités  
+  problème de numéro de jour on peut choisir 31 à chque mois !!!  
 

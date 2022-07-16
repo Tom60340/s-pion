@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Country;
 use App\Entity\Mission;
 use App\Entity\Speciality;
+use App\Entity\Status;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
@@ -38,7 +39,10 @@ class MissionType extends AbstractType
                 'class' => Speciality::class,
                 ])
             ->add('missionType', TextType::class, ["label" => "Type de la mission"])
-            ->add('status', TextType::class, ["label" => "Statut de la mission"])
+            ->add('status', EntityType::class, [
+                "label" => "Statut de la mission",
+                'class' => Status::class,
+                ])
             ->add('country', EntityType::class, [
                 'label' => 'Pays de la mission',
                 'class' => Country::class,

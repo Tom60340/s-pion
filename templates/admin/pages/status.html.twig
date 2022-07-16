@@ -1,35 +1,27 @@
 {% extends 'admin/index.html.twig' %}
 
-{% block title %} {{ parent() }} - Gestion des pays {% endblock %}
+{% block title %} {{ parent() }} - Gestion des Statuts {% endblock %}
 
 {% block content %}
 
-   
-    {% if app.request.get("_route") == "create_country" or app.request.get("_route") == "update_country" %}
+    {% if app.request.get("_route") == "create_status" or app.request.get("_route") == "update_status" %}
       {% if form is defined %}
       {{ form_start(form) }} 
         <div class="d-flex flex-column align-items-center justify-content-center m-3 h-50">
           <div class="form-control text-center m-1 w-25">
-            <i class="fa fa-calendar"></i> {{ form_label(form.name) }}
-            {{ form_widget(form.name, { 'attr': {'class': 'text-center'}}) }}        
+            <i class="fa fa-calendar"></i> {{ form_label(form.status) }}
+            {{ form_widget(form.status, { 'attr': {'class': 'text-center'}}) }}        
             <div class="form-error">
-                {{ form_errors(form.name) }}
+                {{ form_errors(form.status) }}
             </div>
-          </div>
-          <div class="form-control text-center m-1 w-25">
-            <i class="fa fa-calendar"></i> {{ form_label(form.nationality) }}
-            {{ form_widget(form.nationality, { 'attr': {'class': 'text-center'}}) }}        
-            <div class="form-error">
-                {{ form_errors(form.nationality) }}
-            </div>
-          </div>
+          </div>          
 
-          {% if app.request.get("_route") == "create_country" %}  
+          {% if app.request.get("_route") == "create_status" %}  
 
             <div class="d-flex align-items-center justify-content-around ">
               <div class="text-center m-4 ">
-                <a href="/admin/select_countries">
-                  <input type="button" value="Liste des pays" class="btn btn-primary mt-2 w-auto" >
+                <a href="/admin/select_status">
+                  <input type="button" value="Liste des statuts" class="btn btn-primary mt-2 w-auto" >
                 </a>            
               </div>  
               <div class="text-center m-4 ">
@@ -51,12 +43,12 @@
       {% endif %}
     {% else %}
       
-      {% if countries is empty %}
+      {% if status is empty %}
         
-        <h5 class="text-center m-4">Aucun pays trouvé, veuillez en ajouter au moins un SVP.</h5>
+        <h5 class="text-center m-4">Aucun statut trouvé, veuillez en ajouter au moins un SVP.</h5>
         <div class="text-center m-4 ">
-        <a href="/admin/countries">
-          <input type="button" value="Ajouter un pays" class="btn btn-primary mt-2 w-auto" >
+        <a href="/admin/status">
+          <input type="button" value="Ajouter un statut" class="btn btn-primary mt-2 w-auto" >
         </a>            
         </div>
 
@@ -65,24 +57,23 @@
         <div class=" d-flex flex-wrap justify-content-center align-items-center">
         
   
-          {% for country in countries %}
+          {% for state in status %}
     
             <div class="card" style="width: 18rem;">
               <div class="card-body text-center">
-                <h5 class="card-title">Pays : {{ country.name }}</h5>
-                <p class="card-text">Nationalité : {{ country.nationality }}</p>
-                <a href="/admin/update_country/{{country.id}}" >
+                <h5 class="card-title">Statut : {{ state.status }}</h5>
+                <a href="/admin/update_status/{{state.id}}" >
                   <input type="button" value="Modifier" class="btn btn-warning m-3 w-auto" >
                 </a>
-                <a href="/admin/delete_country/{{country.id}}"  >
+                <a href="/admin/delete_status/{{state.id}}"  >
                   <input type="button" value="Supprimer" class="btn btn-danger m-3 w-auto" >
                 </a>
               </div>
             </div>        
             
           {% endfor %}  
-          <a href="/admin/countries">
-            <input type="button" value="Ajouter un pays" class="btn btn-primary mt-2 w-auto" >
+          <a href="/admin/status">
+            <input type="button" value="Ajouter un statut" class="btn btn-primary mt-2 w-auto" >
           </a> 
         </div>   
         

@@ -19,7 +19,7 @@ class AdminController extends AbstractController
         $repo = $doctrine->getRepository(Mission::class);
         $missions = $repo->findAll();
     
-        return $this->renderForm("admin/pages/homeAdmin.html.twig", [
+        return $this->renderForm("admin/pages/missions.html.twig", [
             "missions" =>$missions
         ]);
     }
