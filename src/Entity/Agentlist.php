@@ -49,4 +49,9 @@ class AgentList
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->getAgent();
+    }
 }

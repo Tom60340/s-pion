@@ -2,8 +2,11 @@
 
 namespace App\Form;
 
+use App\Entity\Agent;
+use App\Entity\AgentList;
 use App\Entity\Country;
 use App\Entity\Mission;
+use App\Entity\MissionType as EntityMissionType;
 use App\Entity\Speciality;
 use App\Entity\Status;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -30,7 +33,9 @@ class MissionType extends AbstractType
                 "label" => "Fin de la mission",
                 'years' => range(date('Y'), date('Y')+100),
                 ])
-            ->add('agentList', TextType::class, ["label" => "Liste des agents"])
+            ->add('agentList' , EntityType::class, [
+                'class' => Agent::class,
+                ])
             ->add('stashList', TextType::class, ["label" => "Liste des planques"])
             ->add('contactList', TextType::class, ["label" => "Liste des contacts"])
             ->add('targetList', TextType::class, ["label" => "Liste des cibles"])
@@ -38,7 +43,10 @@ class MissionType extends AbstractType
                 "label" => "Spécialité requise",
                 'class' => Speciality::class,
                 ])
-            ->add('missionType', TextType::class, ["label" => "Type de la mission"])
+            ->add('missionType',  EntityType::class, [
+                "label" => "Type de la mission",
+                'class' => EntityMissionType::class,
+                ])
             ->add('status', EntityType::class, [
                 "label" => "Statut de la mission",
                 'class' => Status::class,

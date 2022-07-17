@@ -75,7 +75,7 @@
   
         <div class="w-25 m-3">
             <div class="form-control text-center m-1">
-            <i class="fa fa-calendar"></i> {{ form_label(form.agentList) }}
+            {{ form_label(form.agentList,"Liste des agents, choix multiple en maintenant Ctrl") }}
             {{ form_widget(form.agentList, { 'attr': {'class': 'text-center'}}) }}        
             <div class="form-error">
                 {{ form_errors(form.agentList) }}

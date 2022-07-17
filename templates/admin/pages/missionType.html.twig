@@ -1,0 +1,92 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %} {{ parent() }} - Gestion des types de mission {% endblock %}
+
+{% block content %}
+
+    {% if app.request.get("_route") == "create_missionType" or app.request.get("_route") == "update_missionType" %}
+      {% if form is defined %}
+      {{ form_start(form) }} 
+        <div class="d-flex flex-column align-items-center justify-content-center m-3 h-50">
+          <div class="form-control text-center m-1 w-25">
+            <i class="fa fa-calendar"></i> {{ form_label(form.type) }}
+            {{ form_widget(form.type, { 'attr': {'class': 'text-center'}}) }}        
+            <div class="form-error">
+                {{ form_errors(form.type) }}
+            </div>
+          </div>          
+
+          {% if app.request.get("_route") == "create_missionType" %}  
+
+            <div class="d-flex align-items-center justify-content-around ">
+              <div class="text-center m-4 ">
+                <a href="/admin/select_missionTypes">
+                  <input type="button" value="Liste des types de missions" class="btn btn-primary mt-2 w-auto" >
+                </a>            
+              </div>  
+              <div class="text-center m-4 ">
+                <input type="submit" value="Enregistrer" class="btn btn-success mt-2 w-auto">
+              </div>
+            </div>
+
+          {% else %}
+
+            <div class="text-center m-4 ">
+              <input type="submit" value="Enregistrer la modification" class="btn btn-warning mt-2 w-auto">
+            </div>
+            
+          {% endif %}
+
+        </div>
+
+      {{ form_end(form) }}
+      {% endif %}
+    {% else %}
+      
+      {% if missionType is empty %}
+        
+        <h5 class="text-center m-4">Aucun type de mission trouvé, veuillez en ajouter au moins un SVP.</h5>
+        <div class="text-center m-4 ">
+        <a href="/admin/missionType">
+          <input type="button" value="Ajouter un type de mission" class="btn btn-primary mt-2 w-auto" >
+        </a>            
+        </div>
+
+      {% else %}
+
+        <div class=" d-flex flex-wrap justify-content-center align-items-center">
+        
+  
+          {% for missionTyp in missionType %}
+    
+            <div class="card" style="width: 18rem;">
+              <div class="card-body text-center">
+                <h5 class="card-title">Type de mission : {{ missionTyp.type }}</h5>
+                <a href="/admin/update_missionType/{{missionTyp.id}}" >
+                  <input type="button" value="Modifier" class="btn btn-warning m-3 w-auto" >
+                </a>
+                <a href="/admin/delete_missionType/{{missionTyp.id}}"  >
+                  <input type="button" value="Supprimer" class="btn btn-danger m-3 w-auto" >
+                </a>
+              </div>
+            </div>        
+            
+          {% endfor %}  
+          <a href="/admin/missionType">
+            <input type="button" value="Ajouter un type de mission" class="btn btn-primary mt-2 w-auto" >
+          </a> 
+        </div>   
+        
+      {% endif %}      
+    
+    {% endif %}
+  
+
+{% endblock %}
+
+
+
+
+
+
+

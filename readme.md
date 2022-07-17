@@ -57,12 +57,12 @@ Ajouter liste de choix du pays dans le form mission
 Gestion agents ok reste à tester après possibilité de créer un agent  
 Séparer bouttons Types, status et spé en 3  
 Status controller + Type + templates + champs dans missions.  
+Types controller + Type + templates + champs dans missions.  
 
 
 
 A faire: 
-
-Types controller + Type + templates + champs dans missions.  
+Pb de relation  agents -> agentList : impossibilité de choix multiple dans le champs Liste des agents de création de mission.  
 Contacts controller + Type + templates + champs dans missions.  
 Cibles controller + Type + templates + champs dans missions.  
 Planques controller + Type + templates + champs dans missions.  
@@ -79,5 +79,6 @@ En plus si j'ai le temps:
   ->> Faire gestion speciality (video GrafiKart : https://www.youtube.com/watch?v=6v_Vzv4dzP4)  
   Revoir templates affichage Admin par pages  
   gérer l'ordre des liste des entités  
-  problème de numéro de jour on peut choisir 31 à chque mois !!!  
+  problème de numéro de jour on peut choisir 31 jours à chaque mois !!!  
+  Modifier/supprimer sans rechargement de page.  
 
