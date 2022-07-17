@@ -68,17 +68,16 @@ Pb de relation  agents -> agentList : impossibilité de choix multiple dans le c
     ->>mis en manytomany (agentList) depuis Mission.  
 Ajouter ManyToMany à mission vers : Contact, Target, Stash  
 Contacts controller + Type + templates + champs dans form et template de missions.  
+Cibles controller + Type + templates + champs dans form et template de missions.  
 
   En cours :  
     MissionType form commenté en conséquence ainsi que le template.  
-    reste à tester puis faire pareil sur targetList et stashList.  
+    reste à tester puis faire pareil sur stashList.  
 
 
 
 A faire:   
-Cibles controller + Type + templates + champs dans form et template de missions.  
 Planques controller + Type + templates + champs dans form et template de missions.  
-Faire les crud et tester à chaque étape (voir code/replay todolist Chris Chevalier).  
 Ajouter logique métier (avec validator?).  
 Faire searchbar auto au fur et à mesure de la complétion  
   Si OK : voir faille de sécurité? finaliser l eval et envoyer et mise en prod Heroku?  
@@ -93,4 +92,5 @@ En plus si j'ai le temps:
   gérer l'ordre des liste des entités  
   problème de numéro de jour on peut choisir 31 jours à chaque mois !!!  
   Modifier/supprimer sans rechargement de page.  
+  Utiliser form de contact pour targetform template  
 

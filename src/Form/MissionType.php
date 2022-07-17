@@ -33,9 +33,9 @@ class MissionType extends AbstractType
                 'years' => range(date('Y'), date('Y')+100),
                 ])
             ->add('agentList')
-            // ->add('stash', TextType::class, ["label" => "Liste des planques"])
+            // ->add('stashList', TextType::class, ["label" => "Liste des planques"])
             ->add('contactList')
-            // ->add('target', TextType::class, ["label" => "Liste des cibles"])
+            ->add('targetList')
             ->add('speciality', EntityType::class, [
                 "label" => "Spécialité requise",
                 'class' => Speciality::class,

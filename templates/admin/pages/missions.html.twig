@@ -1,6 +1,6 @@
 {% extends 'admin/index.html.twig' %}
 
-{% block title %} {{ parent() }} - Gestion des missions {% endblock %}
+{% block title %} {{ parent() }} - Missions {% endblock %}
 
 {% block content %}
   {% if app.request.get("_route") == "create_mission" or app.request.get("_route") == "update_mission" %}
@@ -71,6 +71,13 @@
                 {{ form_errors(form.endDate) }}
             </div>
           </div>
+          <div class="form-control text-center m-1">
+            {{ form_label(form.country) }}
+            {{ form_widget(form.country, { 'attr': {'class': 'text-center'}})}}        
+            <div class="form-error">
+                {{ form_errors(form.country) }}
+            </div>
+          </div>
         </div>
   
         <div class="w-25 m-3">
@@ -95,20 +102,13 @@
                 {{ form_errors(form.contactList) }}
             </div>
           </div>
-          {# <div class="form-control text-center m-1">
+          <div class="form-control text-center m-1">
             {{ form_label(form.targetList,"Liste des cibles, choix multiple en maintenant Ctrl") }}
             {{ form_widget(form.targetList, { 'attr': {'class': 'text-center'}})}}        
             <div class="form-error">
                 {{ form_errors(form.targetList) }}
             </div>
-          </div>           #}
-          <div class="form-control text-center m-1">
-            {{ form_label(form.country) }}
-            {{ form_widget(form.country, { 'attr': {'class': 'text-center'}})}}        
-            <div class="form-error">
-                {{ form_errors(form.country) }}
-            </div>
-          </div>
+          </div>       
         </div>
   
       </div>

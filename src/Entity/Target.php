@@ -23,7 +23,7 @@ class Target
     private $birthDate;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $cadeName;
+    private $codeName;
 
     #[ORM\ManyToOne(targetEntity: Country::class)]
     #[ORM\JoinColumn(nullable: false)]
@@ -70,14 +70,14 @@ class Target
         return $this;
     }
 
-    public function getCadeName(): ?string
+    public function getcodeName(): ?string
     {
-        return $this->cadeName;
+        return $this->codeName;
     }
 
-    public function setCadeName(string $cadeName): self
+    public function setcodeName(string $codeName): self
     {
-        $this->cadeName = $cadeName;
+        $this->codeName = $codeName;
 
         return $this;
     }

@@ -1,14 +1,121 @@
 {% extends 'admin/index.html.twig' %}
 
-{% block title %} {{ parent() }} - Gestion des cibles {% endblock %}
+{% block title %} {{ parent() }} - Cibles {% endblock %}
 
 {% block content %}
   
-  <form action="" class="targetForm form">
-  </form>
-  <p>targetForm</p>
+  {% if app.request.get("_route") == "create_target" or app.request.get("_route") == "update_target" %}
+    {% if form is defined %}
+    {{ form_start(form) }} 
+
+      <div class="d-flex flex-column align-items-center justify-content-center m-3 h-50">
+        <div class="form-control text-center m-1 w-25">
+          {{ form_label(form.firstname) }}
+          {{ form_widget(form.firstname, { 'attr': {'class': 'text-center'}}) }}        
+          <div class="form-error">
+              {{ form_errors(form.firstname) }}
+          </div>
+        </div>
+        <div class="form-control text-center m-1 w-25">
+          {{ form_label(form.lastname) }}
+          {{ form_widget(form.lastname, { 'attr': {'class': 'text-center'}}) }}        
+          <div class="form-error">
+              {{ form_errors(form.lastname) }}
+          </div>
+        </div>
+        <div class="form-control text-center m-1 w-25">
+          {{ form_label(form.birthDate) }}
+          {{ form_widget(form.birthDate, { 'attr': {'class': 'text-center'}}) }}        
+          <div class="form-error">
+              {{ form_errors(form.birthDate) }}
+          </div>
+        </div>
+        <div class="form-control text-center m-1 w-25">
+          {{ form_label(form.codeName) }}
+          {{ form_widget(form.codeName, { 'attr': {'class': 'text-center'}}) }}        
+          <div class="form-error">
+              {{ form_errors(form.codeName) }}
+          </div>
+        </div>
+        <div class="form-control text-center m-1 w-25">
+          {{ form_label(form.country) }}
+          {{ form_widget(form.country, { 'attr': {'class': 'text-center'}}) }}        
+          <div class="form-error">
+              {{ form_errors(form.country) }}
+          </div>
+        </div>
+
+        {% if app.request.get("_route") == "create_target" %}  
+
+          <div class="d-flex align-items-center justify-content-around ">
+            <div class="text-center m-4 ">
+              <a href="/admin/select_targets">
+                <input type="button" value="Liste des cibles" class="btn btn-primary mt-2 w-auto" >
+              </a>            
+            </div>  
+            <div class="text-center m-4 ">
+              <input type="submit" value="Enregistrer" class="btn btn-success mt-2 w-auto">
+            </div>
+          </div>
+
+        {% else %}
+
+          <div class="text-center m-4 ">
+            <input type="submit" value="Enregistrer la modification" class="btn btn-warning mt-2 w-auto">
+          </div>
+          
+        {% endif %}
+
+      </div>
+
+    {{ form_end(form) }}
+    {% endif %}
+  {% else %}
+
+    {% if targets is empty %}
+
+      <h5 class="text-center m-4">Aucune cible trouvée, veuillez en ajouter au moins une SVP.</h5>
+      <div class="text-center m-4 ">
+        <a href="/admin/targets">
+          <input type="button" value="Ajouter une cible" class="btn btn-primary mt-2 w-auto" >
+        </a>            
+      </div>
+
+    {% else %}
+
+      <div class=" d-flex flex-wrap justify-content-center">
+        {% for target in targets %}
+
+          <div class="card" style="width: 18rem;">
+            <div class="card-body text-center">
+              <h5 class="card-title">Nom : {{ target.lastname }}</h5>
+              <p class="card-text">
+                Prénom : {{ target.firstname }} <br>
+                Nom de code : {{ target.codeName }} <br>
+                Date de naissance : {{ target.birthDate |date('d-m-Y') }} <br>
+                Pays : {{ target.country }} <br>
+              </p>
+              <a href="/admin/update_target/{{target.id}}" >
+                <input type="button" value="Modifier" class="btn btn-warning m-3 w-auto" >
+              </a>
+              <a href="/admin/delete_target/{{target.id}}"  >
+                <input type="button" value="Supprimer" class="btn btn-danger m-3 w-auto" >
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+        <a href="/admin/targets">
+          <input type="button" value="Ajouter une cible" class="btn btn-primary mt-2 w-auto" >
+        </a>
+      </div> 
+        
+    {% endif %}
+
+  {% endif %}
 
 {% endblock %}
+
+
 
 
 
