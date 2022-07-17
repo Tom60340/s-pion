@@ -6,7 +6,7 @@ Webpack retiré : OK.
 Logos re-dimenssionnés + cache clear : OK.
 Sidenav: OK fonctionnelle reste à mettre les couleurs et la version admin en responsive avec tous les boutons.
 
-Temps : 58h.
+Temps : 60h.
 
 Lien github de la partie projet:  
 [Link text](https://github.com/Tom60340/008)
@@ -46,7 +46,12 @@ Done :
 Refaire branche avant easyadmin   
 Faire les entities  
 Faire la DB  
-Ajout de l'user Admin + auth + rôle : done  
+Ajout de l'user Admin + auth + rôle :
+```SQL
+INSERT INTO admin (id, email, roles, password,firstname, lastname,created_at) 
+  VALUES (nextval('admin_id_seq'), 'admin@admin.fr', '["ROLE_ADMIN"]', 
+  '\$argon2id\$v=19\$m=65536,t=4,p=1\$2y$13$uyNIdmI5WBE1o6j05H73o.e3QqDwxToeHwsrPvcY0lv79EpvA.S3i','Admin', 'Admin',now())
+``` 
 Pages contenus admin + liens boutons ok done  
 Form missions ajouté à checker.
 Form country ajouté à checker : ok create en DB est OK.  
@@ -60,9 +65,15 @@ Status controller + Type + templates + champs dans missions.
 Types controller + Type + templates + champs dans missions.  
 
 
+En cours :  
+Pb de relation  agents -> agentList : impossibilité de choix multiple dans le champs Liste des agents de création de mission.  
+Entities: agentList,contactList,stashList et targetList deleted.  
+  ->>mis en manytomany (agentList) depuis Mission.  
+  MissionType form commenté en conséquence ainsi que le template.  
+  reste à tester puis faire pareil sur contactList,stashList et targetList.  
+
 
 A faire: 
-Pb de relation  agents -> agentList : impossibilité de choix multiple dans le champs Liste des agents de création de mission.  
 Contacts controller + Type + templates + champs dans missions.  
 Cibles controller + Type + templates + champs dans missions.  
 Planques controller + Type + templates + champs dans missions.  

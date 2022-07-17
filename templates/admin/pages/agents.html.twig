@@ -10,42 +10,42 @@
 
       <div class="d-flex flex-column align-items-center justify-content-center m-3 h-50">
         <div class="form-control text-center m-1 w-25">
-          <i class="fa fa-calendar"></i> {{ form_label(form.firstname) }}
+          {{ form_label(form.firstname) }}
           {{ form_widget(form.firstname, { 'attr': {'class': 'text-center'}}) }}        
           <div class="form-error">
               {{ form_errors(form.firstname) }}
           </div>
         </div>
         <div class="form-control text-center m-1 w-25">
-          <i class="fa fa-calendar"></i> {{ form_label(form.lastname) }}
+          {{ form_label(form.lastname) }}
           {{ form_widget(form.lastname, { 'attr': {'class': 'text-center'}}) }}        
           <div class="form-error">
               {{ form_errors(form.lastname) }}
           </div>
         </div>
         <div class="form-control text-center m-1 w-25">
-          <i class="fa fa-calendar"></i> {{ form_label(form.birthDate) }}
+          {{ form_label(form.birthDate) }}
           {{ form_widget(form.birthDate, { 'attr': {'class': 'text-center'}}) }}        
           <div class="form-error">
               {{ form_errors(form.birthDate) }}
           </div>
         </div>
         <div class="form-control text-center m-1 w-25">
-          <i class="fa fa-calendar"></i> {{ form_label(form.code) }}
+          {{ form_label(form.code) }}
           {{ form_widget(form.code, { 'attr': {'class': 'text-center'}}) }}        
           <div class="form-error">
               {{ form_errors(form.code) }}
           </div>
         </div>
         <div class="form-control text-center m-1 w-25">
-          <i class="fa fa-calendar"></i> {{ form_label(form.country) }}
+          {{ form_label(form.country) }}
           {{ form_widget(form.country, { 'attr': {'class': 'text-center'}}) }}        
           <div class="form-error">
               {{ form_errors(form.country) }}
           </div>
         </div>
         <div class="form-control text-center m-1 w-25">
-          <i class="fa fa-calendar"></i> {{ form_label(form.speciality,'Spécialité(s), choix multiple en maintenant Ctrl') }}
+          {{ form_label(form.speciality,'Spécialité(s), choix multiple en maintenant Ctrl') }}
           {{ form_widget(form.speciality, { 'attr': {'class': 'text-center'}}) }}        
           <div class="form-error">
               {{ form_errors(form.speciality) }}

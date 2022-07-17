@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\MissionRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: MissionRepository::class)]
@@ -28,18 +30,6 @@ class Mission
     #[ORM\Column(type: 'datetime')]
     private $endDate;   
 
-    #[ORM\OneToOne(mappedBy: 'mission', targetEntity: AgentList::class, cascade: ['persist', 'remove'])]
-    private $agentList;
-
-    #[ORM\OneToOne(mappedBy: 'mission', targetEntity: StashList::class, cascade: ['persist', 'remove'])]
-    private $stashList;
-
-    #[ORM\OneToOne(mappedBy: 'mission', targetEntity: ContactList::class, cascade: ['persist', 'remove'])]
-    private $contactList;
-
-    #[ORM\OneToOne(mappedBy: 'mission', targetEntity: TargetList::class, cascade: ['persist', 'remove'])]
-    private $targetList;
-
     #[ORM\ManyToOne(targetEntity: Speciality::class)]
     #[ORM\JoinColumn(nullable: false)]
     private $speciality;
@@ -55,6 +45,14 @@ class Mission
     #[ORM\ManyToOne(targetEntity: Country::class)]
     #[ORM\JoinColumn(nullable: false)]
     private $country;
+
+    #[ORM\ManyToMany(targetEntity: Agent::class)]
+    private $agentList;
+
+    public function __construct()
+    {
+        $this->agentList = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -121,74 +119,6 @@ class Mission
         return $this;
     }
 
-    public function getAgentList(): ?AgentList
-    {
-        return $this->agentList;
-    }
-
-    public function setAgentList(AgentList $agentList): self
-    {
-        // set the owning side of the relation if necessary
-        if ($agentList->getMission() !== $this) {
-            $agentList->setMission($this);
-        }
-
-        $this->agentList = $agentList;
-
-        return $this;
-    }
-
-    public function getStashList(): ?StashList
-    {
-        return $this->stashList;
-    }
-
-    public function setStashList(StashList $stashList): self
-    {
-        // set the owning side of the relation if necessary
-        if ($stashList->getMission() !== $this) {
-            $stashList->setMission($this);
-        }
-
-        $this->stashList = $stashList;
-
-        return $this;
-    }
-
-    public function getContactList(): ?ContactList
-    {
-        return $this->contactList;
-    }
-
-    public function setContactList(ContactList $contactList): self
-    {
-        // set the owning side of the relation if necessary
-        if ($contactList->getMission() !== $this) {
-            $contactList->setMission($this);
-        }
-
-        $this->contactList = $contactList;
-
-        return $this;
-    }
-
-    public function getTargetList(): ?TargetList
-    {
-        return $this->targetList;
-    }
-
-    public function setTargetList(TargetList $targetList): self
-    {
-        // set the owning side of the relation if necessary
-        if ($targetList->getMission() !== $this) {
-            $targetList->setMission($this);
-        }
-
-        $this->targetList = $targetList;
-
-        return $this;
-    }
-
     public function getSpeciality(): ?Speciality
     {
         return $this->speciality;
@@ -233,6 +163,30 @@ class Mission
     public function setCountry(?Country $country): self
     {
         $this->country = $country;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Agent>
+     */
+    public function getAgentList(): Collection
+    {
+        return $this->agentList;
+    }
+
+    public function addAgentList(Agent $agentList): self
+    {
+        if (!$this->agentList->contains($agentList)) {
+            $this->agentList[] = $agentList;
+        }
+
+        return $this;
+    }
+
+    public function removeAgentList(Agent $agentList): self
+    {
+        $this->agentList->removeElement($agentList);
 
         return $this;
     }
