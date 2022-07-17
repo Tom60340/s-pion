@@ -46,6 +46,13 @@
             <div class="form-error">
                 {{ form_errors(form.status) }}
             </div>
+          </div>          
+          <div class="form-control text-center m-1">
+            {{ form_label(form.country) }}
+            {{ form_widget(form.country, { 'attr': {'class': 'text-center'}})}}        
+            <div class="form-error">
+                {{ form_errors(form.country) }}
+            </div>
           </div>
         </div>
   
@@ -71,13 +78,6 @@
                 {{ form_errors(form.endDate) }}
             </div>
           </div>
-          <div class="form-control text-center m-1">
-            {{ form_label(form.country) }}
-            {{ form_widget(form.country, { 'attr': {'class': 'text-center'}})}}        
-            <div class="form-error">
-                {{ form_errors(form.country) }}
-            </div>
-          </div>
         </div>
   
         <div class="w-25 m-3">
@@ -88,13 +88,13 @@
                 {{ form_errors(form.agentList) }}
             </div>
           </div>
-          {# <div class="form-control text-center m-1">
+          <div class="form-control text-center m-1">
             {{ form_label(form.stashList,"Liste des planques, choix multiple en maintenant Ctrl") }}
             {{ form_widget(form.stashList, { 'attr': {'class': 'text-center'}}) }}        
             <div class="form-error">
                 {{ form_errors(form.stashList) }}
             </div>
-          </div> #}
+          </div>
           <div class="form-control text-center m-1">
             {{ form_label(form.contactList,"Liste des contacts, choix multiple en maintenant Ctrl") }}
             {{ form_widget(form.contactList, { 'attr': {'class': 'text-center'}}) }}        
@@ -158,12 +158,24 @@
                 <p class="card-text">
                   Description : {{ mission.description }} <br>
                   CodeName : {{ mission.codeName }} <br>
-                  Date de début : {{ mission.startDate }} <br>
-                  Date de fin : {{ mission.endDate }} <br>
-                  Liste des agents : {{ mission.endDate }} <br>
-                  Liste des planques : {{ mission.endDate }} <br>
-                  Liste des contacts : {{ mission.endDate }} <br>
-                  Liste des cibles : {{ mission.endDate }} <br>
+                  Date de début : {{ mission.startDate |date('Y-m-d H:i:s')  }} <br>
+                  Date de fin : {{ mission.endDate |date('Y-m-d H:i:s') }} <br>
+                  Liste des agents :
+                    {% for agent in mission.agentList %}
+                      {{ agent }} 
+                    {% endfor %} . <br>
+                  Liste des planques :
+                    {% for stash in mission.stashList %}
+                      {{ stash }} 
+                    {% endfor %} . <br>
+                  Liste des contacts :
+                    {% for contact in mission.contactList %}
+                      {{ contact }} 
+                    {% endfor %} . <br>
+                  Liste des cibles :
+                    {% for target in mission.targetList %}
+                      {{ target }} 
+                    {% endfor %} . <br>
                   Spécialité : {{ mission.speciality }} <br>
                   Type de la mission : {{ mission.missionType }} <br>
                   Statut : {{ mission.status }} <br>

@@ -4,11 +4,110 @@
 
 {% block content %}
   
-  <form action="" class="stashForm form">
-  </form>
-  <p>stashForm</p>
+  {% if app.request.get("_route") == "create_stash" or app.request.get("_route") == "update_stash" %}
+    {% if form is defined %}
+    {{ form_start(form) }} 
+
+      <div class="d-flex flex-column align-items-center justify-content-center m-3 h-50">
+        <div class="form-control text-center m-1 w-25">
+          {{ form_label(form.code) }}
+          {{ form_widget(form.code, { 'attr': {'class': 'text-center'}}) }}        
+          <div class="form-error">
+              {{ form_errors(form.code) }}
+          </div>
+        </div>
+        <div class="form-control text-center m-1 w-25">
+          {{ form_label(form.address) }}
+          {{ form_widget(form.address, { 'attr': {'class': 'text-center'}}) }}        
+          <div class="form-error">
+              {{ form_errors(form.address) }}
+          </div>
+        </div>
+        <div class="form-control text-center m-1 w-25">
+          {{ form_label(form.type) }}
+          {{ form_widget(form.type, { 'attr': {'class': 'text-center'}}) }}        
+          <div class="form-error">
+              {{ form_errors(form.type) }}
+          </div>
+        </div>
+        <div class="form-control text-center m-1 w-25">
+          {{ form_label(form.country) }}
+          {{ form_widget(form.country, { 'attr': {'class': 'text-center'}}) }}        
+          <div class="form-error">
+              {{ form_errors(form.country) }}
+          </div>
+        </div>
+
+        {% if app.request.get("_route") == "create_stash" %}  
+
+          <div class="d-flex align-items-center justify-content-around ">
+            <div class="text-center m-4 ">
+              <a href="/admin/select_stashes">
+                <input type="button" value="Liste des planques" class="btn btn-primary mt-2 w-auto" >
+              </a>            
+            </div>  
+            <div class="text-center m-4 ">
+              <input type="submit" value="Enregistrer" class="btn btn-success mt-2 w-auto">
+            </div>
+          </div>
+
+        {% else %}
+
+          <div class="text-center m-4 ">
+            <input type="submit" value="Enregistrer la modification" class="btn btn-warning mt-2 w-auto">
+          </div>
+          
+        {% endif %}
+
+      </div>
+
+    {{ form_end(form) }}
+    {% endif %}
+  {% else %}
+
+    {% if stashs is empty %}
+
+      <h5 class="text-center m-4">Aucune planque trouvée, veuillez en ajouter au moins une SVP.</h5>
+      <div class="text-center m-4 ">
+        <a href="/admin/stashs">
+          <input type="button" value="Ajouter une planque" class="btn btn-primary mt-2 w-auto" >
+        </a>            
+      </div>
+
+    {% else %}
+
+      <div class=" d-flex flex-wrap justify-content-center">
+        {% for stash in stashs %}
+
+          <div class="card" style="width: 18rem;">
+            <div class="card-body text-center">
+              <h5 class="card-title">Adresse : {{ stash.address }}</h5>
+              <p class="card-text">
+                Code : {{ stash.code }} <br>
+                Type de planque : {{ stash.type }} <br>
+                Pays : {{ stash.country }} <br>
+              </p>
+              <a href="/admin/update_stash/{{stash.id}}" >
+                <input type="button" value="Modifier" class="btn btn-warning m-3 w-auto" >
+              </a>
+              <a href="/admin/delete_stash/{{stash.id}}"  >
+                <input type="button" value="Supprimer" class="btn btn-danger m-3 w-auto" >
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+        <a href="/admin/stashs">
+          <input type="button" value="Ajouter une planque" class="btn btn-primary mt-2 w-auto" >
+        </a>
+      </div> 
+        
+    {% endif %}
+
+  {% endif %}
 
 {% endblock %}
+
+
 
 
 
