@@ -49,9 +49,21 @@ class Mission
     #[ORM\ManyToMany(targetEntity: Agent::class)]
     private $agentList;
 
+    #[ORM\ManyToMany(targetEntity: Stash::class)]
+    private $stashList;
+
+    #[ORM\ManyToMany(targetEntity: Contact::class)]
+    private $contactList;
+
+    #[ORM\ManyToMany(targetEntity: Target::class)]
+    private $targetList;
+
     public function __construct()
     {
         $this->agentList = new ArrayCollection();
+        $this->stashList = new ArrayCollection();
+        $this->contactList = new ArrayCollection();
+        $this->targetList = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -187,6 +199,78 @@ class Mission
     public function removeAgentList(Agent $agentList): self
     {
         $this->agentList->removeElement($agentList);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Stash>
+     */
+    public function getStashList(): Collection
+    {
+        return $this->stashList;
+    }
+
+    public function addStashList(Stash $stashList): self
+    {
+        if (!$this->stashList->contains($stashList)) {
+            $this->stashList[] = $stashList;
+        }
+
+        return $this;
+    }
+
+    public function removeStashList(Stash $stashList): self
+    {
+        $this->stashList->removeElement($stashList);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Contact>
+     */
+    public function getContactList(): Collection
+    {
+        return $this->contactList;
+    }
+
+    public function addContactList(Contact $contactList): self
+    {
+        if (!$this->contactList->contains($contactList)) {
+            $this->contactList[] = $contactList;
+        }
+
+        return $this;
+    }
+
+    public function removeContactList(Contact $contactList): self
+    {
+        $this->contactList->removeElement($contactList);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Target>
+     */
+    public function getTargetList(): Collection
+    {
+        return $this->targetList;
+    }
+
+    public function addTargetList(Target $targetList): self
+    {
+        if (!$this->targetList->contains($targetList)) {
+            $this->targetList[] = $targetList;
+        }
+
+        return $this;
+    }
+
+    public function removeTargetList(Target $targetList): self
+    {
+        $this->targetList->removeElement($targetList);
 
         return $this;
     }

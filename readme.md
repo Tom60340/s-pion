@@ -63,20 +63,21 @@ Gestion agents ok reste à tester après possibilité de créer un agent
 Séparer bouttons Types, status et spé en 3  
 Status controller + Type + templates + champs dans missions.  
 Types controller + Type + templates + champs dans missions.  
-
-
-En cours :  
 Pb de relation  agents -> agentList : impossibilité de choix multiple dans le champs Liste des agents de création de mission.  
-Entities: agentList,contactList,stashList et targetList deleted.  
-  ->>mis en manytomany (agentList) depuis Mission.  
-  MissionType form commenté en conséquence ainsi que le template.  
-  reste à tester puis faire pareil sur contactList,stashList et targetList.  
+  Entities: agentList,contactList,stashList et targetList deleted. 
+    ->>mis en manytomany (agentList) depuis Mission.  
+Ajouter ManyToMany à mission vers : Contact, Target, Stash  
+Contacts controller + Type + templates + champs dans form et template de missions.  
+
+  En cours :  
+    MissionType form commenté en conséquence ainsi que le template.  
+    reste à tester puis faire pareil sur targetList et stashList.  
 
 
-A faire: 
-Contacts controller + Type + templates + champs dans missions.  
-Cibles controller + Type + templates + champs dans missions.  
-Planques controller + Type + templates + champs dans missions.  
+
+A faire:   
+Cibles controller + Type + templates + champs dans form et template de missions.  
+Planques controller + Type + templates + champs dans form et template de missions.  
 Faire les crud et tester à chaque étape (voir code/replay todolist Chris Chevalier).  
 Ajouter logique métier (avec validator?).  
 Faire searchbar auto au fur et à mesure de la complétion  

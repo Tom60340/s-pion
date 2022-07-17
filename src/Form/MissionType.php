@@ -34,7 +34,7 @@ class MissionType extends AbstractType
                 ])
             ->add('agentList')
             // ->add('stash', TextType::class, ["label" => "Liste des planques"])
-            // ->add('contact', TextType::class, ["label" => "Liste des contacts"])
+            ->add('contactList')
             // ->add('target', TextType::class, ["label" => "Liste des cibles"])
             ->add('speciality', EntityType::class, [
                 "label" => "Spécialité requise",
