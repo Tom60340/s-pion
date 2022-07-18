@@ -255,3 +255,8 @@ main { flex-grow: 1; }
 .adminNavbar {
   border-bottom: #000000 2px solid;
 }
+
+/* card-title */
+.card-title {
+  font-size: 1.5rem;
+}

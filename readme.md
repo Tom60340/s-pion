@@ -70,9 +70,7 @@ Ajouter ManyToMany à mission vers : Contact, Target, Stash
 Contacts controller + Type + templates + champs dans form et template de missions.  
 Cibles controller + Type + templates + champs dans form et template de missions.  
 Planques controller + Type + templates + champs dans form et template de missions.  
-
-  En cours :  ajouter les CRUD à MissionController.  
-  Tester le tout.  
+Searchbar auto au fur et à mesure de la complétion  done pour home et admin   
 
 
 
@@ -80,7 +78,6 @@ A faire:
 Ajouter Validator pour les entités.  
 Ajouter logique métier (comment? Services ?).  
 Ajouter filter, paginator ( BONUS ): video grafikart : " https://www.youtube.com/watch?time_continue=2570&v=4uYpFjfUUbc&feature=emb_logo".   
-Faire searchbar auto au fur et à mesure de la complétion  
   Si OK : voir faille de sécurité? finaliser l eval et envoyer et mise en prod Heroku?  
      Faire leventdipatcher si besoin d envoi de mail ou autre?  
 Revoir boutons Ajouter dans chaque page select  

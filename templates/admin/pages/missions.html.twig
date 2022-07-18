@@ -148,45 +148,59 @@
         </div>
 
       {% else %}    
+      
+        {# searchbar #}
+        <div class="searchBar">
+          <label class="label" for="searchBar">Rechercher une mission</label>
+          <input class="searchField" type="text" id="searchBar" name="searchBar" onkeyup="search_card()"> 
+        </div>
 
         <div class=" d-flex flex-wrap justify-content-center">
           {% for mission in missions %}
   
-            <div class="card" style="width: 18rem;">
-              <div class="card-body text-center">
-                <h5 class="card-title">Nom : {{ mission.title }}</h5>
-                <p class="card-text">
+            <div class="card w-25 missionCard border border-dark fs-5">
+              <div class="card-body text-center mission">
+                <p class="card-title card-header m-3 fs-4 fw-bold">Nom : {{ mission.title }}</p>
+                <div class="m-2">
                   Description : {{ mission.description }} <br>
-                  CodeName : {{ mission.codeName }} <br>
-                  Date de début : {{ mission.startDate |date('Y-m-d H:i:s')  }} <br>
-                  Date de fin : {{ mission.endDate |date('Y-m-d H:i:s') }} <br>
-                  Liste des agents :
-                    {% for agent in mission.agentList %}
-                      {{ agent }} 
-                    {% endfor %} . <br>
-                  Liste des planques :
-                    {% for stash in mission.stashList %}
-                      {{ stash }} 
-                    {% endfor %} . <br>
-                  Liste des contacts :
-                    {% for contact in mission.contactList %}
-                      {{ contact }} 
-                    {% endfor %} . <br>
-                  Liste des cibles :
-                    {% for target in mission.targetList %}
-                      {{ target }} 
-                    {% endfor %} . <br>
-                  Spécialité : {{ mission.speciality }} <br>
-                  Type de la mission : {{ mission.missionType }} <br>
-                  Statut : {{ mission.status }} <br>
-                  Pays de la mission : {{ mission.country }} <br>                
-                </p>
-                <a href="/admin/update_mission/{{mission.id}}" >
+                </div>                
+                <div class="d-flex flex-row align-items-center justify-content-center">
+                  <p class="card-text flex-fill m-2 p-1">
+                    Nom de code : {{ mission.codeName }} <br>
+                    Date de début : {{ mission.startDate |date('Y-m-d H:i:s')  }} <br>
+                    Date de fin : {{ mission.endDate |date('Y-m-d H:i:s') }} <br>                  
+                    Spécialité : {{ mission.speciality }} <br>
+                    Type de la mission : {{ mission.missionType }} <br>
+                  </p>
+                  <p class="card-text flex-fill m-2 p-1 border-start">
+                    Liste des agents :
+                      {% for agent in mission.agentList %}
+                        {{ agent }} 
+                      {% endfor %} . <br>
+                    Liste des planques :
+                      {% for stash in mission.stashList %}
+                        {{ stash }} 
+                      {% endfor %} . <br>
+                    Liste des contacts :
+                      {% for contact in mission.contactList %}
+                        {{ contact }} 
+                      {% endfor %} . <br>
+                    Liste des cibles :
+                      {% for target in mission.targetList %}
+                        {{ target }} 
+                      {% endfor %} . <br>
+                    Statut : {{ mission.status }} <br>
+                    Pays de la mission : {{ mission.country }} <br>           
+                  </p>
+                </div>
+                <div class="card-footer">
+                  <a href="/admin/update_mission/{{mission.id}}" >
                   <input type="button" value="Modifier" class="btn btn-warning m-3 w-auto" >
-                </a>
-                <a href="/admin/delete_mission/{{mission.id}}"  >
-                  <input type="button" value="Supprimer" class="btn btn-danger m-3 w-auto" >
-                </a>
+                  </a>
+                  <a href="/admin/delete_mission/{{mission.id}}"  >
+                    <input type="button" value="Supprimer" class="btn btn-danger m-3 w-auto" >
+                  </a>
+                </div>                
               </div>
             </div>
           {% endfor %}
