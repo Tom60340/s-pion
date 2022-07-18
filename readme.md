@@ -6,7 +6,7 @@ Webpack retiré : OK.
 Logos re-dimenssionnés + cache clear : OK.
 Sidenav: OK fonctionnelle reste à mettre les couleurs et la version admin en responsive avec tous les boutons.
 
-Temps : 60h.
+Temps : 65h.
 
 Lien github de la partie projet:  
 [Link text](https://github.com/Tom60340/008)
@@ -77,7 +77,9 @@ Planques controller + Type + templates + champs dans form et template de mission
 
 
 A faire:   
-Ajouter logique métier (avec validator?).  
+Ajouter Validator pour les entités.  
+Ajouter logique métier (comment? Services ?).  
+Ajouter filter, paginator ( BONUS ): video grafikart : " https://www.youtube.com/watch?time_continue=2570&v=4uYpFjfUUbc&feature=emb_logo".   
 Faire searchbar auto au fur et à mesure de la complétion  
   Si OK : voir faille de sécurité? finaliser l eval et envoyer et mise en prod Heroku?  
      Faire leventdipatcher si besoin d envoi de mail ou autre?  
