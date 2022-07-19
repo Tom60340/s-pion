@@ -9,12 +9,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 #[Route('/admin')]
 class ContactController extends AbstractController
 {
     #[Route('/contacts', name: 'create_contact')]
-    public function contact(Request $request, ManagerRegistry $doctrine): Response
+    public function contact(Request $request, ManagerRegistry $doctrine, ValidatorInterface $validator): Response
     {
 
         $contact = new Contact(); 
@@ -30,8 +31,11 @@ class ContactController extends AbstractController
             return $this->redirectToRoute('select_contact');
         }
 
+        $errors = $validator->validate($contact);
+
         return $this->renderForm('admin/pages/contacts.html.twig', [
             'form' => $form,
+            'errors' => $errors,
         ]);
     }
 
@@ -48,7 +52,7 @@ class ContactController extends AbstractController
 
 
     #[Route('/update_contact/{id}', name: 'update_contact')]
-    public function update(Contact $contact, Request $request, ManagerRegistry $doctrine): Response
+    public function update(Contact $contact, Request $request, ManagerRegistry $doctrine, ValidatorInterface $validator): Response
     {
     $form = $this->createForm(ContactType::class, $contact);
     $form->handleRequest($request);
@@ -58,9 +62,12 @@ class ContactController extends AbstractController
         return $this->redirectToRoute("select_contact");
     }
 
+    $errors = $validator->validate($contact);
+
     return $this->renderForm("admin/pages/contacts.html.twig", [
         "form" => $form,
         "contact" => $contact,
+        'errors' => $errors,
     ]);
     }
 

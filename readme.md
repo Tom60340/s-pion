@@ -71,27 +71,28 @@ Contacts controller + Type + templates + champs dans form et template de mission
 Cibles controller + Type + templates + champs dans form et template de missions.  
 Planques controller + Type + templates + champs dans form et template de missions.  
 Searchbar auto au fur et à mesure de la complétion  done pour home et admin   
+Ajout des notblank Assert aux entités et Validator aux controllers : done .
 
-
+  En cours: "https://youtu.be/F0Z-D3MSjA0?t=1075"  
 
 A faire:   
-Ajouter Validator pour les entités.  
+Remmetre liens bouton navadmin selon ordre des champs du form mission  
 Ajouter logique métier (comment? Services ?).  
+Ajouter gestion Admin  (via commandes CRUD symfony ?)  
 Ajouter filter, paginator ( BONUS ): video grafikart : " https://www.youtube.com/watch?time_continue=2570&v=4uYpFjfUUbc&feature=emb_logo".   
   Si OK : voir faille de sécurité? finaliser l eval et envoyer et mise en prod Heroku?  
      Faire leventdipatcher si besoin d envoi de mail ou autre?  
 Revoir boutons Ajouter dans chaque page select  
 
-->>> Si =NONOK :  
-Voir replay todolist en vanilla et faire l eval en full vanilla.  
+
 
 En plus si j'ai le temps:  
-  Vérifier que tout correspond aux consigne, à ce qui est attendu  
+  Vérifier que tout correspond aux consignes, à ce qui est attendu  
   ->> Faire gestion speciality (video GrafiKart : https://www.youtube.com/watch?v=6v_Vzv4dzP4)  
   Gérer l'ordre des liste des entités dans les choix 
   Problème de numéro de jour on peut choisir 31 jours à chaque mois !!!  
   Modifier/supprimer sans rechargement de page.  
-  Utiliser form de contact pour targetform template  
+  Utiliser form de contactType pour targetform template à la place de targetType  
   Revoir UI/UX card des missions pour que ce soit plus lisible  
 
 

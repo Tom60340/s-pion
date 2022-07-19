@@ -32,6 +32,10 @@ class MissionType extends AbstractType
                 "label" => "Fin de la mission",
                 'years' => range(date('Y'), date('Y')+100),
                 ])
+            ->add('country', EntityType::class, [
+                'label' => 'Pays de la mission',
+                'class' => Country::class, 
+                ])   
             ->add('agentList')
             ->add('stashList')
             ->add('contactList')
@@ -47,11 +51,8 @@ class MissionType extends AbstractType
             ->add('status', EntityType::class, [
                 "label" => "Statut de la mission",
                 'class' => Status::class,
-                ])
-            ->add('country', EntityType::class, [
-                'label' => 'Pays de la mission',
-                'class' => Country::class,
-            ]);
+                ])            
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

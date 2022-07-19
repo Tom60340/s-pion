@@ -6,6 +6,8 @@ use App\Repository\MissionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: MissionRepository::class)]
 class Mission
@@ -16,46 +18,58 @@ class Mission
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank]
     private $title;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank]
     private $description;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank]
     private $codeName;
 
     #[ORM\Column(type: 'datetime')]
+    #[Assert\NotBlank]
     private $startDate;
 
     #[ORM\Column(type: 'datetime')]
+    #[Assert\NotBlank]
     private $endDate;   
 
     #[ORM\ManyToOne(targetEntity: Speciality::class)]
     #[ORM\JoinColumn(nullable: false)]
+    #[Assert\NotBlank]
     private $speciality;
 
     #[ORM\ManyToOne(targetEntity: MissionType::class)]
     #[ORM\JoinColumn(nullable: false)]
+    #[Assert\NotBlank]
     private $missionType;
 
     #[ORM\ManyToOne(targetEntity: Status::class)]
     #[ORM\JoinColumn(nullable: false)]
+    #[Assert\NotBlank]
     private $status;
 
     #[ORM\ManyToOne(targetEntity: Country::class)]
     #[ORM\JoinColumn(nullable: false)]
+    #[Assert\NotBlank]
     private $country;
 
     #[ORM\ManyToMany(targetEntity: Agent::class)]
+    #[Assert\NotBlank]
     private $agentList;
 
     #[ORM\ManyToMany(targetEntity: Stash::class)]
     private $stashList;
 
     #[ORM\ManyToMany(targetEntity: Contact::class)]
+    #[Assert\NotBlank]
     private $contactList;
 
     #[ORM\ManyToMany(targetEntity: Target::class)]
+    #[Assert\NotBlank]
     private $targetList;
 
     public function __construct()

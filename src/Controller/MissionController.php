@@ -9,9 +9,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 #[Route('/admin')]
-class AdminController extends AbstractController
+class MissionController extends AbstractController
 {
     #[Route('/', name: 'app_admin')]
     public function index(ManagerRegistry $doctrine): Response
@@ -25,7 +26,7 @@ class AdminController extends AbstractController
     }
 
     #[Route('/missions', name: 'create_mission')]
-    public function mission(Request $request, ManagerRegistry $doctrine): Response
+    public function mission(Request $request, ManagerRegistry $doctrine, ValidatorInterface $validator): Response
     {          
         $mission = new Mission(); 
         $form = $this->createForm(MissionType::class, $mission);
@@ -39,20 +40,12 @@ class AdminController extends AbstractController
             return $this->redirectToRoute('app_admin');
         }
 
+        $errors = $validator->validate($mission);
+
         return $this->renderForm('admin/pages/missions.html.twig', [
             'form' => $form ,
-        ]);
-    }   
-
-    #[Route('/select_missions', name: 'select_mission')]
-    public function select(ManagerRegistry $doctrine): Response
-    {
-        $repo = $doctrine->getRepository(Mission::class);
-        $missions = $repo->findAll();
-    
-        return $this->renderForm("admin/pages/missions.html.twig", [
-            "missions" =>$missions
+            'errors' => $errors,
         ]);
     }
-
+    
 }

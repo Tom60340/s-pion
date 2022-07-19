@@ -25,14 +25,7 @@
             <div class="form-error">
                 {{ form_errors(form.codeName) }}
             </div>
-          </div>
-          <div class="form-control text-center m-1">
-            {{ form_label(form.speciality) }}
-            {{ form_widget(form.speciality, { 'attr': {'class': 'text-center'}}) }}        
-            <div class="form-error">
-                {{ form_errors(form.speciality) }}
-            </div>
-          </div>
+          </div>          
           <div class="form-control text-center m-1">
             {{ form_label(form.missionType) }}
             {{ form_widget(form.missionType, { 'attr': {'class': 'text-center'}}) }}        
@@ -52,6 +45,13 @@
             {{ form_widget(form.country, { 'attr': {'class': 'text-center'}})}}        
             <div class="form-error">
                 {{ form_errors(form.country) }}
+            </div>
+          </div>
+          <div class="form-control text-center m-1">
+            {{ form_label(form.speciality) }}
+            {{ form_widget(form.speciality, { 'attr': {'class': 'text-center'}}) }}        
+            <div class="form-error">
+                {{ form_errors(form.speciality) }}
             </div>
           </div>
         </div>

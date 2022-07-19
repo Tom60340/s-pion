@@ -6,6 +6,7 @@ use App\Repository\AgentRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: AgentRepository::class)]
 class Agent
@@ -16,22 +17,28 @@ class Agent
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank]
     private $firstname;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank]
     private $lastname;
 
     #[ORM\Column(type: 'datetime')]
+    #[Assert\NotBlank]
     private $birthDate;
 
     #[ORM\Column(type: 'integer')]
+    #[Assert\NotBlank]
     private $code;
 
     #[ORM\ManyToOne(targetEntity: Country::class)]
     #[ORM\JoinColumn(nullable: false)]
+    #[Assert\NotBlank]
     private $country;
 
     #[ORM\ManyToMany(targetEntity: Speciality::class)]
+    #[Assert\NotBlank]
     private $speciality;
 
     public function __construct()

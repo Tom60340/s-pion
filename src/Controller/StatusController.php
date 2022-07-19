@@ -9,12 +9,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 #[Route('/admin')]
 class StatusController extends AbstractController
 {
     #[Route('/status', name: 'create_status')]
-    public function status(Request $request, ManagerRegistry $doctrine): Response
+    public function status(Request $request, ManagerRegistry $doctrine, ValidatorInterface $validator): Response
     {
 
         $status = new Status(); 
@@ -29,8 +30,11 @@ class StatusController extends AbstractController
             return $this->redirectToRoute('select_status');
         }
 
+        $errors = $validator->validate($status);
+
         return $this->renderForm('admin/pages/status.html.twig', [
             'form' => $form ,
+            'errors' => $errors,
         ]);
     }
 
@@ -49,7 +53,7 @@ class StatusController extends AbstractController
 
 
     #[Route('/update_status/{id}', name: 'update_status')]
-    public function update(Status $status, Request $request, ManagerRegistry $doctrine): Response
+    public function update(Status $status, Request $request, ManagerRegistry $doctrine, ValidatorInterface $validator): Response
     {
     $form = $this->createForm(StatusType::class, $status);
     $form->handleRequest($request);
@@ -59,9 +63,12 @@ class StatusController extends AbstractController
         return $this->redirectToRoute("select_status");
     }
 
+    $errors = $validator->validate($status);
+
     return $this->renderForm("admin/pages/status.html.twig", [
         "form" =>$form,
         "status" => $status,
+        'errors' => $errors ,
     ]);
     }
 

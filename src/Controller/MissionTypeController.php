@@ -9,12 +9,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 #[Route('/admin')]
 class MissionTypeController extends AbstractController
 {
     #[Route('/missionType', name: 'create_missionType')]
-    public function missionType(Request $request, ManagerRegistry $doctrine): Response
+    public function missionType(Request $request, ManagerRegistry $doctrine, ValidatorInterface $validator): Response
     {
 
         $missionType = new MissionType(); 
@@ -29,8 +30,11 @@ class MissionTypeController extends AbstractController
             return $this->redirectToRoute('select_missionTypes');
         }
 
+        $errors = $validator->validate($missionType);
+
         return $this->renderForm('admin/pages/missionType.html.twig', [
             'form' => $form ,
+            'errors' => $errors,
         ]);
     }
 
@@ -49,7 +53,7 @@ class MissionTypeController extends AbstractController
 
 
     #[Route('/update_missionType/{id}', name: 'update_missionType')]
-    public function update(MissionType $missionType, Request $request, ManagerRegistry $doctrine): Response
+    public function update(MissionType $missionType, Request $request, ManagerRegistry $doctrine, ValidatorInterface $validator): Response
     {
     $form = $this->createForm(MissionTypeType::class, $missionType);
     $form->handleRequest($request);
@@ -59,9 +63,12 @@ class MissionTypeController extends AbstractController
         return $this->redirectToRoute("select_missionTypes");
     }
 
+    $errors = $validator->validate($missionType);
+
     return $this->renderForm("admin/pages/missionType.html.twig", [
         "form" =>$form,
         "missionType" => $missionType,
+        'errors' => $errors ,
     ]);
     }
 

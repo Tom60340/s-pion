@@ -9,12 +9,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 #[Route('/admin')]
 class TargetController extends AbstractController
 {
     #[Route('/targets', name: 'create_target')]
-    public function target(Request $request, ManagerRegistry $doctrine): Response
+    public function target(Request $request, ManagerRegistry $doctrine, ValidatorInterface $validator): Response
     {
 
         $target = new Target(); 
@@ -30,8 +31,11 @@ class TargetController extends AbstractController
             return $this->redirectToRoute('select_target');
         }
 
+        $errors = $validator->validate($target);
+
         return $this->renderForm('admin/pages/targets.html.twig', [
             'form' => $form,
+            'errors' => $errors,
         ]);
     }
 
@@ -48,7 +52,7 @@ class TargetController extends AbstractController
 
 
     #[Route('/update_target/{id}', name: 'update_target')]
-    public function update(Target $target, Request $request, ManagerRegistry $doctrine): Response
+    public function update(Target $target, Request $request, ManagerRegistry $doctrine, ValidatorInterface $validator): Response
     {
     $form = $this->createForm(TargetType::class, $target);
     $form->handleRequest($request);
@@ -58,9 +62,12 @@ class TargetController extends AbstractController
         return $this->redirectToRoute("select_target");
     }
 
+    $errors = $validator->validate($target);
+
     return $this->renderForm("admin/pages/targets.html.twig", [
         "form" => $form,
         "target" => $target,
+        'errors' => $errors ,
     ]);
     }
 

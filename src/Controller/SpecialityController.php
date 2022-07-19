@@ -9,13 +9,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 
 #[Route('/admin')]
 class SpecialityController extends AbstractController
 {
     #[Route('/specialities', name: 'create_speciality')]
-    public function speciality(Request $request, ManagerRegistry $doctrine): Response
+    public function speciality(Request $request, ManagerRegistry $doctrine,ValidatorInterface $validator): Response
     {
 
         $speciality = new Speciality(); 
@@ -30,8 +31,11 @@ class SpecialityController extends AbstractController
             return $this->redirectToRoute('select_speciality');
         }
 
+        $errors = $validator->validate($speciality);
+
         return $this->renderForm('admin/pages/specialities.html.twig', [
-            'form' => $form
+            'form' => $form,
+            'errors' => $errors,
         ]);
     }
 
@@ -50,7 +54,7 @@ class SpecialityController extends AbstractController
 
 
     #[Route('/update_speciality/{id}', name: 'update_speciality')]
-    public function update(Speciality $speciality, Request $request, ManagerRegistry $doctrine): Response
+    public function update(Speciality $speciality, Request $request, ManagerRegistry $doctrine,ValidatorInterface $validator): Response
     {
     $form = $this->createForm(SpecialityType::class, $speciality);
     $form->handleRequest($request);
@@ -60,9 +64,12 @@ class SpecialityController extends AbstractController
         return $this->redirectToRoute("select_speciality");
     }
 
+    $errors = $validator->validate($speciality);
+
     return $this->renderForm("admin/pages/specialities.html.twig", [
         "form" =>$form,
         "speciality" => $speciality,
+        'errors' => $errors ,
     ]);
     }
 

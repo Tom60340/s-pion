@@ -9,17 +9,18 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 #[Route('/admin')]
 class AgentController extends AbstractController
 {
     #[Route('/agents', name: 'create_agent')]
-    public function agent(Request $request, ManagerRegistry $doctrine): Response
+    public function agent(Request $request, ManagerRegistry $doctrine, ValidatorInterface $validator): Response
     {
 
         $agent = new Agent(); 
         $form = $this->createForm(AgentType::class, $agent);
-        
+                
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {            
@@ -30,8 +31,11 @@ class AgentController extends AbstractController
             return $this->redirectToRoute('select_agent');
         }
 
+        $errors = $validator->validate($agent);
+
         return $this->renderForm('admin/pages/agents.html.twig', [
             'form' => $form,
+            'errors' =>$errors,
         ]);
     }
 
@@ -48,7 +52,7 @@ class AgentController extends AbstractController
 
 
     #[Route('/update_agent/{id}', name: 'update_agent')]
-    public function update(Agent $agent, Request $request, ManagerRegistry $doctrine): Response
+    public function update(Agent $agent, Request $request, ManagerRegistry $doctrine, ValidatorInterface $validator): Response
     {
     $form = $this->createForm(AgentType::class, $agent);
     $form->handleRequest($request);
@@ -58,9 +62,12 @@ class AgentController extends AbstractController
         return $this->redirectToRoute("select_agent");
     }
 
+    $errors = $validator->validate($agent);
+
     return $this->renderForm("admin/pages/agents.html.twig", [
         "form" => $form,
         "agent" => $agent,
+        "errors" => $errors,
     ]);
     }
 

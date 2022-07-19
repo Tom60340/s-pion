@@ -9,12 +9,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 #[Route('/admin')]
 class StashController extends AbstractController
 {
     #[Route('/stashs', name: 'create_stash')]
-    public function stash(Request $request, ManagerRegistry $doctrine): Response
+    public function stash(Request $request, ManagerRegistry $doctrine,ValidatorInterface $validator): Response
     {
 
         $stash = new Stash(); 
@@ -30,8 +31,11 @@ class StashController extends AbstractController
             return $this->redirectToRoute('select_stash');
         }
 
+        $errors = $validator->validate($stash);
+
         return $this->renderForm('admin/pages/stashes.html.twig', [
             'form' => $form,
+            'errors' => $errors,
         ]);
     }
 
@@ -48,7 +52,7 @@ class StashController extends AbstractController
 
 
     #[Route('/update_stash/{id}', name: 'update_stash')]
-    public function update(Stash $stash, Request $request, ManagerRegistry $doctrine): Response
+    public function update(Stash $stash, Request $request, ManagerRegistry $doctrine, ValidatorInterface $validator): Response
     {
     $form = $this->createForm(StashType::class, $stash);
     $form->handleRequest($request);
@@ -58,9 +62,12 @@ class StashController extends AbstractController
         return $this->redirectToRoute("select_stash");
     }
 
+    $errors = $validator->validate($stash);
+
     return $this->renderForm("admin/pages/stashes.html.twig", [
         "form" => $form,
         "stash" => $stash,
+        'errors' => $errors ,
     ]);
     }
 

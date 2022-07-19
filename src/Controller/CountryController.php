@@ -10,11 +10,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+use Symfony\Component\Validator\Validator\ValidatorInterface;
+
 #[Route('/admin')]
 class CountryController extends AbstractController
 {
     #[Route('/countries', name: 'create_country')]
-    public function country(Request $request, ManagerRegistry $doctrine): Response
+    public function country(Request $request, ManagerRegistry $doctrine, ValidatorInterface $validator): Response
     {
 
         $country = new Country(); 
@@ -29,8 +31,11 @@ class CountryController extends AbstractController
             return $this->redirectToRoute('select_country');
         }
 
+        $errors = $validator->validate($country);
+
         return $this->renderForm('admin/pages/countries.html.twig', [
             'form' => $form ,
+            'errors' => $errors,
         ]);
     }
 
@@ -49,7 +54,7 @@ class CountryController extends AbstractController
 
 
     #[Route('/update_country/{id}', name: 'update_country')]
-    public function update(Country $country, Request $request, ManagerRegistry $doctrine): Response
+    public function update(Country $country, Request $request, ManagerRegistry $doctrine, ValidatorInterface $validator): Response
     {
     $form = $this->createForm(CountryType::class, $country);
     $form->handleRequest($request);
@@ -59,9 +64,12 @@ class CountryController extends AbstractController
         return $this->redirectToRoute("select_country");
     }
 
+    $errors = $validator->validate($country);
+
     return $this->renderForm("admin/pages/countries.html.twig", [
         "form" =>$form,
         "country" => $country,
+        'errors' => $errors ,
     ]);
     }
 

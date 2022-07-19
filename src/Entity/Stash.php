@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\StashRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: StashRepository::class)]
 class Stash
@@ -14,16 +15,20 @@ class Stash
     private $id;
 
     #[ORM\Column(type: 'integer')]
+    #[Assert\NotBlank]
     private $code;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank]
     private $address;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank]
     private $type;
 
     #[ORM\ManyToOne(targetEntity: Country::class)]
     #[ORM\JoinColumn(nullable: false)]
+    #[Assert\NotBlank]
     private $country;
 
     public function getId(): ?int

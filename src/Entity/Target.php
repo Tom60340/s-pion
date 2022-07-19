@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\TargetRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: TargetRepository::class)]
 class Target
@@ -14,19 +15,24 @@ class Target
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank]
     private $firstname;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank]
     private $lastname;
 
     #[ORM\Column(type: 'datetime')]
+    #[Assert\NotBlank]
     private $birthDate;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank]
     private $codeName;
 
     #[ORM\ManyToOne(targetEntity: Country::class)]
     #[ORM\JoinColumn(nullable: false)]
+    #[Assert\NotBlank]
     private $country;
 
     public function getId(): ?int
