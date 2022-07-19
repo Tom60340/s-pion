@@ -6,7 +6,7 @@ Webpack retiré : OK.
 Logos re-dimenssionnés + cache clear : OK.
 Sidenav: OK fonctionnelle reste à mettre les couleurs et la version admin en responsive avec tous les boutons.
 
-Temps : 65h.
+Temps : 67h.
 
 Lien github de la partie projet:  
 [Link text](https://github.com/Tom60340/008)
@@ -73,12 +73,11 @@ Planques controller + Type + templates + champs dans form et template de mission
 Searchbar auto au fur et à mesure de la complétion  done pour home et admin   
 Ajout des notblank Assert aux entités et Validator aux controllers : done .
 
-  En cours: "https://youtu.be/F0Z-D3MSjA0?t=1075"  
+  En cours:   
 
 A faire:   
-Remmetre liens bouton navadmin selon ordre des champs du form mission  
+Voir si nécessaire : ajouter gestion Admin  (via commandes CRUD symfony ?)  
 Ajouter logique métier (comment? Services ?).  
-Ajouter gestion Admin  (via commandes CRUD symfony ?)  
 Ajouter filter, paginator ( BONUS ): video grafikart : " https://www.youtube.com/watch?time_continue=2570&v=4uYpFjfUUbc&feature=emb_logo".   
   Si OK : voir faille de sécurité? finaliser l eval et envoyer et mise en prod Heroku?  
      Faire leventdipatcher si besoin d envoi de mail ou autre?  
@@ -96,3 +95,15 @@ En plus si j'ai le temps:
   Revoir UI/UX card des missions pour que ce soit plus lisible  
 
 
+Ennoncé:  
+ Les agents ont un nom, un prénom, une date de naissance, un code d'identification, une nationalité, 1 ou plusieurs spécialités.
+ Les cibles ont un nom, un prénom, une date de naissance, un nom de code, une nationalité.
+ Les contacts ont un nom, un prénom, une date de naissance, un nom de code, une nationalité.
+ Les planques ont un code, une adresse, un pays, un type.
+ Les missions ont un titre, une description, un nom de code, un pays, 1 ou plusieurs agents, 1 ou plusieurs contacts, 1 ou plusieurs cibles, un type de mission (Surveillance, Assassinat, Infiltration …), un statut (En préparation, en cours, terminé, échec), 0 ou plusieurs planque, 1 spécialité requise, date de début, date de fin.
+ Les administrateurs ont un nom, un prénom, une adresse mail, un mot de passe, une date de création.
+Règle métier :
+ Sur une mission, la ou les cibles ne peuvent pas avoir la même nationalité que le ou les agents.
+ Sur une mission, les contacts sont obligatoirement de la nationalité du pays de la mission.
+ Sur une mission, la planque est obligatoirement dans le même pays que la mission.
+ Sur une mission, il faut assigner au moins 1 agent disposant de la spécialité requise.

@@ -2,7 +2,6 @@
 
 namespace App\Form;
 
-use App\Entity\Agent;
 use App\Entity\Country;
 use App\Entity\Mission;
 use App\Entity\MissionType as EntityMissionType;
@@ -31,11 +30,11 @@ class MissionType extends AbstractType
             ->add('endDate', DateTimeType::class, [
                 "label" => "Fin de la mission",
                 'years' => range(date('Y'), date('Y')+100),
-                ])
+            ])        
             ->add('country', EntityType::class, [
                 'label' => 'Pays de la mission',
                 'class' => Country::class, 
-                ])   
+            ])
             ->add('agentList')
             ->add('stashList')
             ->add('contactList')
