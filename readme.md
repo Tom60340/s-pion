@@ -72,16 +72,19 @@ Cibles controller + Type + templates + champs dans form et template de missions.
 Planques controller + Type + templates + champs dans form et template de missions.  
 Searchbar auto au fur et à mesure de la complétion  done pour home et admin   
 Ajout des notblank Assert aux entités et Validator aux controllers : done .
+Done : "  https://www.youtube.com/watch?v=vCjfxT6miT4&list=PLlxQJeQRaKDTRPbnUb8WtcLsmujZcAznu&index=27"  
 
-  En cours:   
+  En cours: filtrer une lister d'entités par une autre entité : "  https://www.youtube.com/watch?v=vCjfxT6miT4&list=PLlxQJeQRaKDTRPbnUb8WtcLsmujZcAznu&index=28" pour gérer la règle métier :
+    ->> Sur une mission, les contacts sont obligatoirement de la nationalité du pays de la mission..  
+
+
 
 A faire:   
-Voir si nécessaire : ajouter gestion Admin  (via commandes CRUD symfony ?)  
+Revoir boutons Ajouter dans chaque page select  
 Ajouter logique métier (comment? Services ?).  
 Ajouter filter, paginator ( BONUS ): video grafikart : " https://www.youtube.com/watch?time_continue=2570&v=4uYpFjfUUbc&feature=emb_logo".   
   Si OK : voir faille de sécurité? finaliser l eval et envoyer et mise en prod Heroku?  
      Faire leventdipatcher si besoin d envoi de mail ou autre?  
-Revoir boutons Ajouter dans chaque page select  
 
 
 

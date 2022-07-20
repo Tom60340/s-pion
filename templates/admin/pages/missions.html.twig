@@ -11,7 +11,7 @@
       </div>
       <div class="d-flex flex-row align-items-center justify-content-center ">
         
-        <div class="w-25 m-3">
+        {# <div class="w-25 m-3">
           <div class="form-control text-center m-1">
             {{ form_label(form.title) }}
             {{ form_widget(form.title, { 'attr': {'class': 'text-center'}}) }}        
@@ -54,9 +54,9 @@
                 {{ form_errors(form.speciality) }}
             </div>
           </div>
-        </div>
+        </div> #}
   
-        <div class="w-25 m-3">        
+        {# <div class="w-25 m-3">        
           <div class="form-control text-center m-1">
             {{ form_label(form.description) }}
             {{ form_widget(form.description, { 'attr': {'class': 'text-center'}}) }}        
@@ -78,7 +78,7 @@
                 {{ form_errors(form.endDate) }}
             </div>
           </div>
-        </div>
+        </div> #}
   
         <div class="w-25 m-3">
           <div class="form-control text-center m-1">
@@ -88,7 +88,7 @@
                 {{ form_errors(form.agentList) }}
             </div>
           </div>
-          <div class="form-control text-center m-1">
+          {# <div class="form-control text-center m-1">
             {{ form_label(form.stashList,"Liste des planques, choix multiple en maintenant Ctrl") }}
             {{ form_widget(form.stashList, { 'attr': {'class': 'text-center'}}) }}        
             <div class="form-error">
@@ -101,7 +101,7 @@
             <div class="form-error">
                 {{ form_errors(form.contactList) }}
             </div>
-          </div>
+          </div> #}
           <div class="form-control text-center m-1">
             {{ form_label(form.targetList,"Liste des cibles, choix multiple en maintenant Ctrl") }}
             {{ form_widget(form.targetList, { 'attr': {'class': 'text-center'}})}}        
