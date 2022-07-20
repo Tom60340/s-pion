@@ -38,40 +38,16 @@ class MissionController extends AbstractController
     public function mission(Request $request, ManagerRegistry $doctrine, ValidatorInterface $validator, AgentRepository $agentRepository, TargetRepository $targetRepository): Response
     {          
         $mission = new Mission(); 
-        $form = $this->createFormBuilder(['agent' =>$agentRepository->find(3)])
-            ->addEventListener(FormEvents::PRE_SET_DATA, function(FormEvent $event) use ($targetRepository){
-                $agent = $event->getData()['agent'] ?? null;
+    $form = $this->createForm(MissionType::class, ['agent' =>$agentRepository->find(1)]);            
 
-        $targets = $agent === null ? [] : $targetRepository->findByCountryDiffOfAgent($agent);
-
-        // $targets = $agent === null ? [] : $targetRepository->createQueryBuilder('t')
-        //     ->andWhere('t.country <> :agent')
-        //     ->setParameter('agent', $agent)
-        //     ->orderBy('t.firstname', 'ASC')
-        //     ->setMaxResults(10)
-        //     ->getQuery()
-        //     ->getResult();
-
-            $event->getForm()->add('targetList',EntityType::class, [
-                'class' => Target::class,
-                'choice_label' => 'firstname',
-                'choices' => $targets,
-            ]);
-            })
-            ->add('agentList',EntityType::class, [
-                'class' => Agent::class,
-                'choice_label' => 'firstname',                
-            ])
-            ->getForm();            
-
-        // $form->handleRequest($request);
-        // if ($form->isSubmitted() && $form->isValid()) {            
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
         //     $mission = $form->getData();
         //     $em = $doctrine->getManager();
         //     $em->persist($mission);
         //     $em->flush();
         //     return $this->redirectToRoute('app_admin');
-        // }
+        }
 
         $errors = $validator->validate($mission);
 
