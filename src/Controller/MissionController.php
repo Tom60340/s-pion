@@ -38,17 +38,19 @@ class MissionController extends AbstractController
     public function mission(Request $request, ManagerRegistry $doctrine, ValidatorInterface $validator, AgentRepository $agentRepository, TargetRepository $targetRepository): Response
     {          
         $mission = new Mission(); 
-        $form = $this->createFormBuilder(['agent' =>$agentRepository->find(1)])
+        $form = $this->createFormBuilder(['agent' =>$agentRepository->find(3)])
             ->addEventListener(FormEvents::PRE_SET_DATA, function(FormEvent $event) use ($targetRepository){
                 $agent = $event->getData()['agent'] ?? null;
 
-        $targets = $agent === null ? [] : $targetRepository->createQueryBuilder('t')
-            ->andWhere('t.country <> :agent')
-            ->setParameter('agent', $agent)
-            ->orderBy('t.firstname', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult();
+        $targets = $agent === null ? [] : $targetRepository->findByCountryDiffOfAgent($agent);
+
+        // $targets = $agent === null ? [] : $targetRepository->createQueryBuilder('t')
+        //     ->andWhere('t.country <> :agent')
+        //     ->setParameter('agent', $agent)
+        //     ->orderBy('t.firstname', 'ASC')
+        //     ->setMaxResults(10)
+        //     ->getQuery()
+        //     ->getResult();
 
             $event->getForm()->add('targetList',EntityType::class, [
                 'class' => Target::class,

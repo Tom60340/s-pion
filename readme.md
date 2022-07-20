@@ -72,9 +72,9 @@ Cibles controller + Type + templates + champs dans form et template de missions.
 Planques controller + Type + templates + champs dans form et template de missions.  
 Searchbar auto au fur et à mesure de la complétion  done pour home et admin   
 Ajout des notblank Assert aux entités et Validator aux controllers : done .
-Done : "  https://www.youtube.com/watch?v=vCjfxT6miT4&list=PLlxQJeQRaKDTRPbnUb8WtcLsmujZcAznu&index=27"  
+Done : "  https://www.youtube.com/watch?v=vCjfxT6miT4&list=PLlxQJeQRaKDTRPbnUb8WtcLsmujZcAznu&index=27"  +28 +29 done   
 
-  En cours: filtrer une lister d'entités par une autre entité : "  https://www.youtube.com/watch?v=vCjfxT6miT4&list=PLlxQJeQRaKDTRPbnUb8WtcLsmujZcAznu&index=28" pour gérer la règle métier :
+  En cours: filtrer une lister d'entités par une autre entité : "  https://www.youtube.com/watch?v=vCjfxT6miT4&list=PLlxQJeQRaKDTRPbnUb8WtcLsmujZcAznu&index=30" pour gérer la règle métier :
     ->> Sur une mission, les contacts sont obligatoirement de la nationalité du pays de la mission..  
 
 

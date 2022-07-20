@@ -88,6 +88,13 @@
                 {{ form_errors(form.agentList) }}
             </div>
           </div>
+          <div class="form-control text-center m-1">
+            {{ form_label(form.targetList,"Liste des cibles, choix multiple en maintenant Ctrl") }}
+            {{ form_widget(form.targetList, { 'attr': {'class': 'text-center'}})}}        
+            <div class="form-error">
+                {{ form_errors(form.targetList) }}
+            </div>
+          </div>  
           {# <div class="form-control text-center m-1">
             {{ form_label(form.stashList,"Liste des planques, choix multiple en maintenant Ctrl") }}
             {{ form_widget(form.stashList, { 'attr': {'class': 'text-center'}}) }}        
@@ -102,13 +109,7 @@
                 {{ form_errors(form.contactList) }}
             </div>
           </div> #}
-          <div class="form-control text-center m-1">
-            {{ form_label(form.targetList,"Liste des cibles, choix multiple en maintenant Ctrl") }}
-            {{ form_widget(form.targetList, { 'attr': {'class': 'text-center'}})}}        
-            <div class="form-error">
-                {{ form_errors(form.targetList) }}
-            </div>
-          </div>       
+               
         </div>
   
       </div>

@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Agent;
 use App\Entity\Target;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -37,6 +38,17 @@ class TargetRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+
+    public function findByCountryDiffOfAgent(Agent $agent):array
+    {
+        return $this->createQueryBuilder('t')
+            ->andWhere('t.country <> :agent')
+            ->setParameter('agent', $agent)
+            ->orderBy('t.firstname', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult();
     }
 
 //    /**
